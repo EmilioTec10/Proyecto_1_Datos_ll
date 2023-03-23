@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <QKeyEvent>
 #include <QGraphicsScene>
+#include "Bullet.h"
 
 void Player::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_Up){
@@ -13,4 +14,12 @@ void Player::keyPressEvent(QKeyEvent *event){
             setPos(x(),y()+10);
         }
     }
+}
+
+void Player::bullets()
+{
+    Bullet *bullet = new Bullet();
+    bullet->setPos(x()+100,y()+50);
+    scene()->addItem(bullet);
+
 }

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(Proyecto_1_Datos_ll VERSION 0.1 LANGUAGES CXX)
+project(Battlespace VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -16,6 +16,8 @@ set(PROJECT_SOURCES
         main.cpp
         Player.h
         Player.cpp
+        Bullet.h
+        Bullet.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

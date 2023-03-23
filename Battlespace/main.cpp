@@ -2,6 +2,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QGraphicsView>
+#include <QTimer>
 #include "Player.h"
 
 int main(int argc, char *argv[])
@@ -10,6 +11,8 @@ int main(int argc, char *argv[])
 
     //Escena
     QGraphicsScene *scene = new QGraphicsScene();
+    int width = 800;
+    int height = 600;
 
     //Item en la escena
     Player *player = new Player();
@@ -27,6 +30,15 @@ int main(int argc, char *argv[])
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->show();
+    view->setFixedSize(width,height);
+    scene->setSceneRect(0,0,width,height);
+
+    player->setPos(0,150);
+    int bullet_speed = 1000;
+
+    QTimer *timer = new QTimer;
+    QObject::connect(timer,SIGNAL(timeout()),player,SLOT(bullets()));
+    timer->start(bullet_speed);
 
     return a.exec();
 }
