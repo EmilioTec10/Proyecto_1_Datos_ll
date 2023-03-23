@@ -18,6 +18,8 @@ set(PROJECT_SOURCES
         Player.cpp
         Bullet.h
         Bullet.cpp
+        Enemy.h
+        Enemy.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

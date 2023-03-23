@@ -2,6 +2,7 @@
 #include <QKeyEvent>
 #include <QGraphicsScene>
 #include "Bullet.h"
+#include "Enemy.h"
 
 void Player::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_Up){
@@ -22,4 +23,9 @@ void Player::bullets()
     bullet->setPos(x()+100,y()+50);
     scene()->addItem(bullet);
 
+}
+
+void Player::spawn_enemies(){
+    Enemy *enemy = new Enemy();
+    scene()->addItem(enemy);
 }

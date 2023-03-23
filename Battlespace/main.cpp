@@ -36,9 +36,16 @@ int main(int argc, char *argv[])
     player->setPos(0,150);
     int bullet_speed = 1000;
 
-    QTimer *timer = new QTimer;
-    QObject::connect(timer,SIGNAL(timeout()),player,SLOT(bullets()));
-    timer->start(bullet_speed);
+    //Timer de las balas
+    QTimer *timer_bullets = new QTimer;
+    QObject::connect(timer_bullets,SIGNAL(timeout()),player,SLOT(bullets()));
+    timer_bullets->start(bullet_speed);
+
+    //Timer de los enemigos
+    QTimer *timer_enemies = new QTimer;
+    QObject::connect(timer_enemies,SIGNAL(timeout()),player,SLOT(spawn_enemies()));
+    timer_enemies->start(2000);
+
 
     return a.exec();
 }

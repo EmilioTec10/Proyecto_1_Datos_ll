@@ -10,6 +10,7 @@ public:
     void keyPressEvent(QKeyEvent * event);
 public slots:
     void bullets();
+    void spawn_enemies();
 
 };
 #endif // PLAYER_H
