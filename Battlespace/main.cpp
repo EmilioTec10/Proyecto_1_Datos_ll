@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
     //Item en la escena
     Player *player = new Player();
-    player->setRect(0,0,100,100);
+    player->setPixmap(QPixmap(":/Images/nave (1).png"));
 
     //Agregado de el item a la escena
     scene->addItem(player);

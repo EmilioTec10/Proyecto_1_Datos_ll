@@ -20,6 +20,7 @@ set(PROJECT_SOURCES
         Bullet.cpp
         Enemy.h
         Enemy.cpp
+        Resources.qrc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
