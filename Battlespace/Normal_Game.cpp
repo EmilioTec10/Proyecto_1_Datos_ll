@@ -36,9 +36,14 @@ Normal_Game::Normal_Game(QWidget *parent){
     timer_bullets->start(bullet_speed);
 
     //Timer de los enemigos
-    QTimer *timer_enemies = new QTimer;
-    QObject::connect(timer_enemies,SIGNAL(timeout()),player,SLOT(spawn_enemies()));
-    timer_enemies->start(2000);
+    QTimer *timer_blue_enemies = new QTimer;
+    QObject::connect(timer_blue_enemies,SIGNAL(timeout()),player,SLOT(spawn_Blue_enemies()));
+    timer_blue_enemies->start(2000);
+
+    //Timer de los enemigos
+    QTimer *timer_red_enemies = new QTimer;
+    QObject::connect(timer_red_enemies,SIGNAL(timeout()),player,SLOT(spawn_Red_enemies()));
+    timer_red_enemies->start(3000);
 
     show();
 }

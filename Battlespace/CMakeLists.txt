@@ -26,6 +26,10 @@ set(PROJECT_SOURCES
         Bullet.cpp
         Enemy.h
         Enemy.cpp
+        Red_Enemy.h
+        Red_Enemy.cpp
+        Blue_Enemy.h
+        Blue_Enemy.cpp
         Dificulties_Window.h
         Dificulties_Window.cpp
         Resources.qrc

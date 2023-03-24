@@ -2,7 +2,8 @@
 #include <QKeyEvent>
 #include <QGraphicsScene>
 #include "Bullet.h"
-#include "Enemy.h"
+#include "Red_Enemy.h"
+#include "Blue_Enemy.h"
 
 void Player::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_Up){
@@ -25,7 +26,13 @@ void Player::bullets()
 
 }
 
-void Player::spawn_enemies(){
-    Enemy *enemy = new Enemy();
-    scene()->addItem(enemy);
+void Player::spawn_Blue_enemies(){
+    Blue_Enemy *blue_Enemy = new Blue_Enemy();
+    scene()->addItem(blue_Enemy);
+}
+
+void Player::spawn_Red_enemies()
+{
+    Red_Enemy *red_Enemy = new Red_Enemy();
+    scene()->addItem(red_Enemy);
 }

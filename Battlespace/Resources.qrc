@@ -2,5 +2,7 @@
     <qresource prefix="/Images">
         <file>nave (1).png</file>
         <file>bullet (1).png</file>
+        <file>RedSpaceShip.png</file>
+        <file>BlueSpaceShip.png</file>
     </qresource>
 </RCC>
