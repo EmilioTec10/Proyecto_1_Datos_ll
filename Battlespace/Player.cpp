@@ -11,7 +11,7 @@ void Player::keyPressEvent(QKeyEvent *event){
         }
     }
     else if (event->key() == Qt::Key_Down){
-        if (pos().y() < 400){
+        if (pos().y() < 500){
             setPos(x(),y()+10);
         }
     }
@@ -20,7 +20,7 @@ void Player::keyPressEvent(QKeyEvent *event){
 void Player::bullets()
 {
     Bullet *bullet = new Bullet();
-    bullet->setPos(x()+100,y()+50);
+    bullet->setPos(x()+100,y()+20);
     scene()->addItem(bullet);
 
 }

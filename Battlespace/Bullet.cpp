@@ -6,7 +6,7 @@
 
 Bullet::Bullet()
 {
-    setRect(0,0,20,5);
+    setPixmap(QPixmap(":/Images/bullet (1).png"));
 
     QTimer *timer = new QTimer;
 

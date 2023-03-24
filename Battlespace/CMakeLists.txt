@@ -14,12 +14,20 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         main.cpp
+        Easy_game.h
+        Easy_game.cpp
+        Normal_Game.h
+        Normal_Game.cpp
+        Hard_Game.h
+        Hard_Game.cpp
         Player.h
         Player.cpp
         Bullet.h
         Bullet.cpp
         Enemy.h
         Enemy.cpp
+        Dificulties_Window.h
+        Dificulties_Window.cpp
         Resources.qrc
 )
 
