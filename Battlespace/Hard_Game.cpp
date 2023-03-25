@@ -9,6 +9,7 @@ Hard_Game::Hard_Game(QWidget *parent){
     scene->setSceneRect(0,0,800,600);
     int width = 800;
     int height = 600;
+    int bullet_speed = 900;
 
     //Item en la escena
     Player *player = new Player();
@@ -28,7 +29,7 @@ Hard_Game::Hard_Game(QWidget *parent){
     setFixedSize(800,600);
 
     player->setPos(0,150);
-    int bullet_speed = 900;
+    scene->addItem(bullets_label);
 
     //Timer de las balas
     QTimer *timer_bullets = new QTimer;
@@ -45,5 +46,20 @@ Hard_Game::Hard_Game(QWidget *parent){
     QObject::connect(timer_red_enemies,SIGNAL(timeout()),player,SLOT(spawn_Red_enemies()));
     timer_red_enemies->start(3000);
 
+    QObject::connect(timer_bulletss,SIGNAL(timeout()),this,SLOT(decrease()));
+    timer_bulletss->start(bullet_speed);
+
     show();
 }
+
+void Hard_Game::decrease()
+{
+    if (bullets_number == 0){
+        timer_bulletss->stop();
+    }
+    else{
+        bullets_number--;
+        bullets_label->setPlainText("Bullets: " + QString::number(bullets_number));
+    }
+}
+
