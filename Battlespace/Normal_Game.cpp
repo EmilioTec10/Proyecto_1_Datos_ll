@@ -1,5 +1,5 @@
 #include "Normal_Game.h"
-#include "Red_Enemy.h"
+#include <QImage>
 #include <QTimer>
 #include <QGraphicsTextItem>
 #include <QFont>
@@ -9,6 +9,8 @@ Normal_Game::Normal_Game(QWidget *parent){
     //Escena
     QGraphicsScene *scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
+    scene->setBackgroundBrush(QBrush(QImage(":/Images/space_background (1).png")));
+
     int width = 800;
     int height = 600;
     int bullet_speed = 800;
@@ -16,6 +18,9 @@ Normal_Game::Normal_Game(QWidget *parent){
     //Item en la escena
     Player *player = new Player(bullets_number);
     player->setPixmap(QPixmap(":/Images/nave (1).png"));
+    QFont font("Arial", 15, QFont::Helvetica);
+    bullets_label->setFont(font);
+    bullets_label->setDefaultTextColor(Qt::red);
 
     //Agregado de el item a la escena
     scene->addItem(player);
