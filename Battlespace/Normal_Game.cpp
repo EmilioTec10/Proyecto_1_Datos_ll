@@ -1,7 +1,9 @@
 #include "Normal_Game.h"
+#include "Red_Enemy.h"
 #include <QTimer>
 #include <QGraphicsTextItem>
 #include <QFont>
+#include <QDebug>
 
 Normal_Game::Normal_Game(QWidget *parent){
     //Escena
@@ -12,7 +14,7 @@ Normal_Game::Normal_Game(QWidget *parent){
     int bullet_speed = 800;
 
     //Item en la escena
-    Player *player = new Player();
+    Player *player = new Player(bullets_number);
     player->setPixmap(QPixmap(":/Images/nave (1).png"));
 
     //Agregado de el item a la escena
@@ -36,6 +38,7 @@ Normal_Game::Normal_Game(QWidget *parent){
     QTimer *timer_bullets = new QTimer;
     QObject::connect(timer_bullets,SIGNAL(timeout()),player,SLOT(bullets()));
     timer_bullets->start(bullet_speed);
+
 
     //Timer de los enemigos
     QTimer *timer_blue_enemies = new QTimer;

@@ -12,7 +12,7 @@ Easy_game::Easy_game(QWidget *parent){
     int bullet_speed = 600;
 
     //Item en la escena
-    Player *player = new Player();
+    Player *player = new Player(bullets_number);
     player->setPixmap(QPixmap(":/Images/nave (1).png"));
 
     //Agregado de el item a la escena

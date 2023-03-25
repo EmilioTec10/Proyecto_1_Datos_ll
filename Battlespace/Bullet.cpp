@@ -4,6 +4,7 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
+#include <QDebug>
 
 Bullet::Bullet()
 {
@@ -15,20 +16,29 @@ Bullet::Bullet()
 
     timer->start(50);
 }
-
+int red_life = 2;
 void Bullet::move()
 {
     // if bullet collides with enemy, destroy both
        QList<QGraphicsItem *> colliding_items = collidingItems();
        for (int i = 0, n = colliding_items.size(); i < n; ++i){
            if (typeid(*(colliding_items[i])) == typeid(Red_Enemy)){
-               // remove them both
-               scene()->removeItem(colliding_items[i]);
-               scene()->removeItem(this);
-               // delete them both
-               delete colliding_items[i];
-               delete this;
-               return;
+
+               if (red_life == 0){
+                   // remove them both
+                   scene()->removeItem(colliding_items[i]);
+                   scene()->removeItem(this);
+                   delete this;
+                   // delete them both
+                   delete colliding_items[i];
+                   return;
+               }
+               else{
+                   red_life--;
+                   scene()->removeItem(this);
+                   delete this;
+                   return;
+               }
            }
            else if (typeid(*(colliding_items[i])) == typeid(Blue_Enemy)){
                // remove them both

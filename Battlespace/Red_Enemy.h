@@ -7,6 +7,7 @@
 class Red_Enemy: public QObject ,public QGraphicsPixmapItem{
     Q_OBJECT
 public:
+    int red_life = 2;
     Red_Enemy();
 public slots:
     void move();
