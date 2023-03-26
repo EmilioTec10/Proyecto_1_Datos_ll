@@ -1,5 +1,4 @@
 #include "Dificulties_Window.h"
-#include "Easy_game.h"
 #include "Normal_Game.h"
 #include "Hard_Game.h"
 #include <QPushButton>
@@ -9,14 +8,14 @@
 
 void Dificulties::easy()
 {
-    Easy_game * easy = new Easy_game();
+    Normal_Game * easy = new  Normal_Game(800, 70, 3, 5);
     easy->show();
     this->close();
 }
 
 void Dificulties::normal()
 {
-    Normal_Game * normal = new Normal_Game();
+    Normal_Game * normal = new Normal_Game(1000, 50, 5, 3);
     normal->show();
     this->close();
 }

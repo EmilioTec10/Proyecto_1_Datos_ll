@@ -14,8 +14,6 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         main.cpp
-        Easy_game.h
-        Easy_game.cpp
         Normal_Game.h
         Normal_Game.cpp
         Hard_Game.h

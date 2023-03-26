@@ -10,18 +10,23 @@
 class Normal_Game: public QGraphicsView{
     Q_OBJECT
 public:
-    Normal_Game(QWidget * parent=0);
+    Normal_Game(int bullet_speed,int bullets, int ships_number, int health, QWidget * parent=0);
 
     QTimer *timer_bulletss = new QTimer;
-    int bullets_number = 50;
 
-    QGraphicsTextItem *bullets_label = new QGraphicsTextItem("Bullets: " + QString::number(bullets_number));
+    QGraphicsTextItem *bullets_label;
+    QGraphicsTextItem *health_label;
 
     QGraphicsScene * scene;
     Player * player;
 public slots:
-    void decrease();
-
+    void decrease_bullets();
+    void decrease_health();
+private:
+    int width = 800;
+    int height = 600;
+    int bullets_number;
+    int health_number;
 };
 
 #endif // NORMAL_GAME_H
