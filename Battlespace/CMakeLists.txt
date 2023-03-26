@@ -30,6 +30,8 @@ set(PROJECT_SOURCES
         Blue_Enemy.cpp
         Dificulties_Window.h
         Dificulties_Window.cpp
+        Game_Over.h
+        Game_Over.cpp
         Resources.qrc
 )
 

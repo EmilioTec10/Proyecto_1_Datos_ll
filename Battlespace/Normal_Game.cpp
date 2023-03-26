@@ -1,11 +1,15 @@
 #include "Normal_Game.h"
+#include "Red_Enemy.h"
+#include "Blue_Enemy.h"
+#include "Game_Over.h"
 #include <QPushButton>
 #include <QGraphicsProxyWidget>
 #include <QImage>
 #include <QTimer>
 #include <QGraphicsTextItem>
+#include <QGraphicsScene>
 #include <QFont>
-#include <QDebug>
+#include <QList>
 
 Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int health, QWidget *parent){
     //Escena
@@ -21,6 +25,9 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     bullets_label->setFont(font);
     bullets_label->setDefaultTextColor(Qt::red);
 
+    line = new QGraphicsLineItem(10, 10, 10, 600);
+    scene->addItem(line);
+
     //Item en la escena
     Player *player = new Player(bullets_number);
     player->setPixmap(QPixmap(":/Images/nave (1).png"));
@@ -28,14 +35,6 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     health_label = new QGraphicsTextItem("Health: " + QString::number(health));
     health_label->setFont(font);
     health_label->setDefaultTextColor(Qt::red);
-
-    QPushButton * normal_ = new QPushButton("nose");
-    normal_->setGeometry(0,0,50,50);
-    QGraphicsProxyWidget *proxy_norma = new QGraphicsProxyWidget();
-    proxy_norma->setWidget(normal_);
-    scene->addItem(proxy_norma);
-    proxy_norma->setPos(750,550);
-    connect(normal_, &QPushButton::released, this, &Normal_Game::decrease_health);
 
     //Agregado de el item a la escena
     scene->addItem(player);
@@ -74,6 +73,10 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     QObject::connect(timer_bulletss,SIGNAL(timeout()),this,SLOT(decrease_bullets()));
     timer_bulletss->start(bullet_speed);
 
+    check = new QTimer;
+    QObject::connect(check,SIGNAL(timeout()),this,SLOT(check_health()));
+    check->start(50);
+
     show();
 }
 void Normal_Game::decrease_bullets()
@@ -95,5 +98,24 @@ void Normal_Game::decrease_health()
     else{
         health_number--;
         health_label->setPlainText("Health: " + QString::number(health_number));
+    }
+}
+
+void Normal_Game::check_health()
+{
+    if (health_number == 0){
+        check->stop();
+        Game_Over *game_over = new Game_Over();
+        game_over->show();
+        this->close();
+    }
+    else{
+        QList<QGraphicsItem *> colliding_items = line->collidingItems();
+        for (int i = 0, n = colliding_items.size(); i < n; ++i){
+            if (typeid(*(colliding_items[i])) == typeid(Red_Enemy) || typeid(*(colliding_items[i])) == typeid(Blue_Enemy)){
+
+                decrease_health();
+            }
+        }
     }
 }

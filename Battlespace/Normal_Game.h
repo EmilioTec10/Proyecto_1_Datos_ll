@@ -13,15 +13,18 @@ public:
     Normal_Game(int bullet_speed,int bullets, int ships_number, int health, QWidget * parent=0);
 
     QTimer *timer_bulletss = new QTimer;
+    QTimer *check;
 
     QGraphicsTextItem *bullets_label;
     QGraphicsTextItem *health_label;
+    QGraphicsLineItem *line;
 
     QGraphicsScene * scene;
     Player * player;
 public slots:
     void decrease_bullets();
     void decrease_health();
+    void check_health();
 private:
     int width = 800;
     int height = 600;

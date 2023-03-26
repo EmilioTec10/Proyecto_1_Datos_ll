@@ -41,6 +41,7 @@ Dificulties::Dificulties(QWidget *parent)
     QGraphicsProxyWidget *proxy_label = new QGraphicsProxyWidget();
     proxy_label->setWidget(label);
     QFont font("Arial", 20, QFont::Helvetica);
+    label->setStyleSheet("background-color: white");
     label->setFont(font);
     scene->addItem(proxy_label);
     proxy_label->setPos(330, 20);
