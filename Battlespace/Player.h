@@ -8,13 +8,14 @@ class Player: public QObject ,public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     int bullets_number;
+    int enemies_screen;
     void keyPressEvent(QKeyEvent * event);
     Player(int bullets_number);
 public slots:
     void bullets();
     void spawn_Blue_enemies();
     void spawn_Red_enemies();
-    void spawn_enemies();
-
+    void spawn_enemies(int enemies);
+    void conect();
 };
 #endif // PLAYER_H

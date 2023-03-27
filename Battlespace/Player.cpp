@@ -4,7 +4,9 @@
 #include "Bullet.h"
 #include "Red_Enemy.h"
 #include "Blue_Enemy.h"
-#include "Enemy.h"
+#include <QTimer>
+#include <QDebug>
+#include <QObject>
 
 void Player::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_Up){
@@ -16,6 +18,12 @@ void Player::keyPressEvent(QKeyEvent *event){
         if (pos().y() < 500){
             setPos(x(),y()+10);
         }
+    }
+    else if (event->key() == Qt::Key_Q){
+        qDebug() << "bajar";
+    }
+    else if (event->key() == Qt::Key_W){
+        qDebug() << "subir";
     }
 }
 
@@ -50,8 +58,19 @@ void Player::spawn_Red_enemies()
     scene()->addItem(red_Enemy);
 }
 
-void Player::spawn_enemies()
+void Player::spawn_enemies(int enemies)
 {
-    Enemy *enemy = new Enemy();
-    scene()->addItem(enemy);
+   for (int i = 0; i < enemies; i++){
+       Red_Enemy *red_Enemy = new Red_Enemy();
+       scene()->addItem(red_Enemy);
+       Blue_Enemy *blue_Enemy = new Blue_Enemy();
+       scene()->addItem(blue_Enemy);
+   }
+
 }
+
+void Player::conect()
+{
+    spawn_enemies(2);
+}
+

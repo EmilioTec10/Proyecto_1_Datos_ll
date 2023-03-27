@@ -32,6 +32,8 @@ set(PROJECT_SOURCES
         Dificulties_Window.cpp
         Game_Over.h
         Game_Over.cpp
+        Win_Window.h
+        Win_Window.cpp
         Resources.qrc
 )
 
