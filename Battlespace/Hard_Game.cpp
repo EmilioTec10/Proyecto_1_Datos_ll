@@ -47,7 +47,7 @@ Hard_Game::Hard_Game(QWidget *parent){
     timer_red_enemies->start(10000);
 
     QTimer *timer_enemies = new QTimer;
-    QObject::connect(timer_enemies,SIGNAL(timeout()),player,SLOT(spawn_enemies()));
+    QObject::connect(timer_enemies,SIGNAL(timeout()),player,SLOT(conect()));
     timer_enemies->start(2000);
 
     QObject::connect(timer_bulletss,SIGNAL(timeout()),this,SLOT(decrease()));

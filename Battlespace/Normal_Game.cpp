@@ -15,11 +15,12 @@
 
 Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int health, QWidget *parent){
     //Escena
-    QGraphicsScene *scene = new QGraphicsScene();
+    scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
     scene->setBackgroundBrush(QBrush(QImage(":/Images/space_background (1).png")));
     QFont font("Arial", 15, QFont::Helvetica);
 
+    this->bullets_speed = bullet_speed;
     this->bullets_number = bullets;
     this->health_number = health;
 
@@ -39,7 +40,7 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     scene->addItem(line);
 
     //Item en la escena
-    Player *player = new Player(bullets_number);
+    player = new Player(bullets_number);
     player->setPixmap(QPixmap(":/Images/nave (1).png"));
 
     health_label = new QGraphicsTextItem("Health: " + QString::number(health));
@@ -59,6 +60,7 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     //Hacer rectangulo focusiable
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
+    player->setPos(0,150);
 
     //Mostrar scena
     setScene(scene);
@@ -66,10 +68,8 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800,600);
 
-    player->setPos(0,150);
-
     //Timer de las balas
-    QTimer *timer_bullets = new QTimer;
+    timer_bullets = new QTimer;
     QObject::connect(timer_bullets,SIGNAL(timeout()),player,SLOT(bullets()));
     timer_bullets->start(bullet_speed);
 
@@ -77,6 +77,8 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     QObject::connect(wave_timer,SIGNAL(timeout()),this,SLOT(increase_wave()));
     wave_timer->start();
     wave_timer->setInterval((10000));
+
+    player->spawn_enemies(ships_number, scene);
 
     timer_enemies = new QTimer;
     QObject::connect(timer_enemies,SIGNAL(timeout()),player,SLOT(conect()));
@@ -99,8 +101,8 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     timer_red_enemies->start(3000);
     */
 
-    QObject::connect(timer_bulletss,SIGNAL(timeout()),this,SLOT(decrease_bullets()));
-    timer_bulletss->start(bullet_speed);
+    QObject::connect(timer_decrease_bullets,SIGNAL(timeout()),this,SLOT(decrease_bullets()));
+    timer_decrease_bullets->start(bullet_speed);
 
     check = new QTimer;
     QObject::connect(check,SIGNAL(timeout()),this,SLOT(check_health()));
@@ -108,10 +110,35 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
 
     show();
 }
+
+void Normal_Game::keyPressEvent(QKeyEvent *event)
+{
+
+    if (event->key() == Qt::Key_Up){
+        if (player->y() > 0){
+            player->setPos(player->x(),player->y()-10);
+        }
+    }
+    else if (event->key() == Qt::Key_Down){
+        if (player->y() < 500){
+            player->setPos(player->x(),player->y() + 10);
+        }
+    }
+    else if (event->key() == Qt::Key_Q){
+        bullets_speed += 100;
+        timer_bullets->setInterval(bullets_speed + 10);
+        timer_decrease_bullets->setInterval(bullets_speed);
+    }
+    else if (event->key() == Qt::Key_W){
+        bullets_speed -= 100;
+        timer_bullets->setInterval(bullets_speed);
+        timer_decrease_bullets->setInterval(bullets_speed);
+    }
+}
 void Normal_Game::decrease_bullets()
 {
     if (bullets_number == 0){
-        timer_bulletss->stop();
+        timer_decrease_bullets->stop();
     }
     else{
         bullets_number--;
@@ -163,7 +190,7 @@ void Normal_Game::increase_wave()
 
 void Normal_Game::increase_fase()
 {
-    if (fase_number == 5){
+    if (fase_number == 3){
         wave_timer->stop();
         fase_timer->stop();
         Win_Window *win_Window = new Win_Window();

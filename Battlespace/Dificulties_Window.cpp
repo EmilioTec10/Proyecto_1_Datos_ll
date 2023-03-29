@@ -8,14 +8,14 @@
 
 void Dificulties::easy()
 {
-    Normal_Game * easy = new  Normal_Game(800, 70, 3, 5);
+    Normal_Game * easy = new  Normal_Game(800, 200, 1, 8);
     easy->show();
     this->close();
 }
 
 void Dificulties::normal()
 {
-    Normal_Game * normal = new Normal_Game(1000, 50, 5, 3);
+    Normal_Game * normal = new Normal_Game(1000, 150, 2, 5);
     normal->show();
     this->close();
 }

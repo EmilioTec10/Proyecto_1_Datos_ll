@@ -12,10 +12,14 @@ class Normal_Game: public QGraphicsView{
 public:
     Normal_Game(int bullet_speed,int bullets, int ships_number, int health, QWidget * parent=0);
 
-    QTimer *timer_bulletss = new QTimer;
+    void keyPressEvent(QKeyEvent *event);
+
+    QTimer *timer_bullets;
+    QTimer *timer_decrease_bullets = new QTimer;
     QTimer *timer_enemies;
     QTimer *wave_timer;
     QTimer *fase_timer;
+    QTimer *setBullets;
     QTimer *check;
 
     QGraphicsTextItem *bullets_label;
@@ -35,6 +39,7 @@ public slots:
 private:
     int width = 800;
     int height = 600;
+    int bullets_speed;
     int bullets_number;
     int health_number;
     int fase_number = 1;
