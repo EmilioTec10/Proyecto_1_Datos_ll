@@ -10,17 +10,42 @@
 class Hard_Game: public QGraphicsView{
     Q_OBJECT
 public:
-    Hard_Game(QWidget * parent=0);
+    Hard_Game(int bullet_speed,int bullets, int ships_number, int health, QWidget * parent=0);
 
-    QTimer *timer_bulletss = new QTimer;
-    int bullets_number = 40;
+    void keyPressEvent(QKeyEvent *event);
 
-    QGraphicsTextItem *bullets_label = new QGraphicsTextItem("Bullets: " + QString::number(bullets_number));
+    QTimer *timer_bullets;
+    QTimer *timer_decrease_bullets = new QTimer;
+    QTimer *timer_enemies;
+    QTimer *wave_timer;
+    QTimer *fase_timer;
+    QTimer *setBullets;
+    QTimer *check;
+
+    QGraphicsTextItem *bullets_label;
+    QGraphicsTextItem *bullets_speed_label;
+    QGraphicsTextItem *health_label;
+    QGraphicsTextItem *wave_label;
+    QGraphicsTextItem *fase_label;
+    QGraphicsLineItem *line;
 
     QGraphicsScene * scene;
     Player * player;
+    void change_speed_bullets();
 public slots:
-    void decrease();
+    void decrease_bullets();
+    void decrease_health();
+    void check_health();
+    void increase_wave();
+    void increase_fase();
+private:
+    int width = 800;
+    int height = 600;
+    int bullets_speed;
+    int bullets_number;
+    int health_number;
+    int fase_number = 1;
+    int wave_number = 1;
 };
 
 #endif // HARD_GAME_H

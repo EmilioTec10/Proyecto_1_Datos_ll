@@ -11,11 +11,14 @@ public:
     int enemies_screen;
     Player(int bullets_number);
     void spawn_enemies(int enemies, QGraphicsScene *scene);
+    void spawn_hard_enemies(int enemies, QGraphicsScene *scene);
 public slots:
     void bullets();
     void spawn_Blue_enemies();
     void spawn_Red_enemies();
+    void spawn_hard_enemies(int enemies);
     void spawn_enemies(int enemies);
     void conect();
+    void connector();
 };
 #endif // PLAYER_H

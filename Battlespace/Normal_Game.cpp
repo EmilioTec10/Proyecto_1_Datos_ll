@@ -11,6 +11,7 @@
 #include <QGraphicsScene>
 #include <QFont>
 #include <QList>
+#include <QtWidgets>
 #include <functional>
 
 Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int health, QWidget *parent){
@@ -27,6 +28,10 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     bullets_label = new QGraphicsTextItem("Bullets: " + QString::number(bullets_number));
     bullets_label->setFont(font);
     bullets_label->setDefaultTextColor(Qt::red);
+
+    bullets_speed_label = new QGraphicsTextItem("Bullets Speed: " + QString::number(bullets_speed));
+    bullets_speed_label->setFont(font);
+    bullets_speed_label->setDefaultTextColor(Qt::red);
 
     fase_label = new QGraphicsTextItem("Fase: " + QString::number(fase_number));
     fase_label->setFont(font);
@@ -50,10 +55,12 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     //Agregado de el item a la escena
     scene->addItem(player);
     scene->addItem(bullets_label);
+    scene->addItem(bullets_speed_label);
     scene->addItem(health_label);
     scene->addItem(wave_label);
     scene->addItem(fase_label);
-    health_label->setPos(0,20);
+    bullets_speed_label->setPos(0,20);
+    health_label->setPos(0,40);
     wave_label->setPos(700,20);
     fase_label->setPos(700,0);
 
@@ -89,18 +96,6 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     QObject::connect(fase_timer,SIGNAL(timeout()),this,SLOT(increase_fase()));
     fase_timer->start(50000);
 
-    //Timer de los enemigos
-    /*
-    QTimer *timer_blue_enemies = new QTimer;
-    QObject::connect(timer_blue_enemies,SIGNAL(timeout()),player,SLOT(spawn_Blue_enemies()));
-    timer_blue_enemies->start(2000);
-
-    //Timer de los enemigos
-    QTimer *timer_red_enemies = new QTimer;
-    QObject::connect(timer_red_enemies,SIGNAL(timeout()),player,SLOT(spawn_Red_enemies()));
-    timer_red_enemies->start(3000);
-    */
-
     QObject::connect(timer_decrease_bullets,SIGNAL(timeout()),this,SLOT(decrease_bullets()));
     timer_decrease_bullets->start(bullet_speed);
 
@@ -125,14 +120,26 @@ void Normal_Game::keyPressEvent(QKeyEvent *event)
         }
     }
     else if (event->key() == Qt::Key_Q){
-        bullets_speed += 100;
-        timer_bullets->setInterval(bullets_speed + 10);
-        timer_decrease_bullets->setInterval(bullets_speed);
+        if (bullets_speed < 1200){
+            bullets_speed += 100;
+            timer_bullets->setInterval(bullets_speed + 10);
+            change_speed_bullets();
+            timer_decrease_bullets->setInterval(bullets_speed);
+        }
+        else{
+            return;
+        }
     }
     else if (event->key() == Qt::Key_W){
-        bullets_speed -= 100;
-        timer_bullets->setInterval(bullets_speed);
-        timer_decrease_bullets->setInterval(bullets_speed);
+        if (bullets_speed > 200){
+            bullets_speed -= 100;
+            timer_bullets->setInterval(bullets_speed + 10);
+            change_speed_bullets();
+            timer_decrease_bullets->setInterval(bullets_speed);
+        }
+        else{
+            return;
+        }
     }
 }
 void Normal_Game::decrease_bullets()
@@ -203,4 +210,9 @@ void Normal_Game::increase_fase()
         fase_label->setPlainText("Fase: " + QString::number(fase_number));
         //timer_enemies->stop();
     }
+}
+
+void Normal_Game::change_speed_bullets()
+{
+    bullets_speed_label->setPlainText("Bullets Speed: " + QString::number(bullets_speed));
 }

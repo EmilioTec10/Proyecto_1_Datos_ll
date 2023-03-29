@@ -23,6 +23,7 @@ public:
     QTimer *check;
 
     QGraphicsTextItem *bullets_label;
+    QGraphicsTextItem *bullets_speed_label;
     QGraphicsTextItem *health_label;
     QGraphicsTextItem *wave_label;
     QGraphicsTextItem *fase_label;
@@ -30,12 +31,14 @@ public:
 
     QGraphicsScene * scene;
     Player * player;
+    void change_speed_bullets();
 public slots:
     void decrease_bullets();
     void decrease_health();
     void check_health();
     void increase_wave();
     void increase_fase();
+
 private:
     int width = 800;
     int height = 600;

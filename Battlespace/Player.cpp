@@ -4,6 +4,8 @@
 #include "Bullet.h"
 #include "Red_Enemy.h"
 #include "Blue_Enemy.h"
+#include "Blue_Enemy_Hard.h"
+#include "Red_Enemy_Hard.h"
 #include <QTimer>
 #include <QDebug>
 #include <QObject>
@@ -50,6 +52,17 @@ void Player::spawn_enemies(int enemies)
 
 }
 
+void Player::spawn_hard_enemies(int enemies)
+{
+   for (int i = 0; i < enemies; i++){
+       Red_Enemy_Hard *red_Enemy = new Red_Enemy_Hard();
+       scene()->addItem(red_Enemy);
+       Blue_Enemy_Hard *blue_Enemy = new Blue_Enemy_Hard();
+       scene()->addItem(blue_Enemy);
+   }
+
+}
+
 void Player::spawn_enemies(int enemies, QGraphicsScene *scene)
 {
    for (int i = 0; i < enemies; i++){
@@ -60,8 +73,23 @@ void Player::spawn_enemies(int enemies, QGraphicsScene *scene)
    }
 
 }
+void Player::spawn_hard_enemies(int enemies, QGraphicsScene *scene)
+{
+   for (int i = 0; i < enemies; i++){
+       Red_Enemy_Hard *red_Enemy = new Red_Enemy_Hard();
+       scene->addItem(red_Enemy);
+       Blue_Enemy_Hard *blue_Enemy = new Blue_Enemy_Hard();
+       scene->addItem(blue_Enemy);
+   }
+
+}
 
 void Player::conect()
 {
     spawn_enemies(2);
+}
+
+void Player::connector()
+{
+    spawn_hard_enemies(2);
 }

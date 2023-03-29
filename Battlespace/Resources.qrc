@@ -5,5 +5,7 @@
         <file>RedSpaceShip.png</file>
         <file>BlueSpaceShip.png</file>
         <file>space_background (1).png</file>
+        <file>Red_hard.png</file>
+        <file>Blue_Hard.png</file>
     </qresource>
 </RCC>

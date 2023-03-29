@@ -22,7 +22,7 @@ void Dificulties::normal()
 
 void Dificulties::hard()
 {
-    Hard_Game * hard = new Hard_Game();
+    Hard_Game * hard = new Hard_Game(1000, 120, 2, 3);
     hard->show();
     this->close();
 }

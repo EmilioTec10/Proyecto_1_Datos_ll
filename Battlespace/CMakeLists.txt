@@ -28,6 +28,10 @@ set(PROJECT_SOURCES
         Red_Enemy.cpp
         Blue_Enemy.h
         Blue_Enemy.cpp
+        Red_Enemy_Hard.h
+        Red_Enemy_Hard.cpp
+        Blue_Enemy_Hard.h
+        Blue_Enemy_Hard.cpp
         Dificulties_Window.h
         Dificulties_Window.cpp
         Game_Over.h
