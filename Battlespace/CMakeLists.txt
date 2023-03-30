@@ -38,6 +38,10 @@ set(PROJECT_SOURCES
         Game_Over.cpp
         Win_Window.h
         Win_Window.cpp
+        Linked_List.h
+        Linked_List.cpp
+        Bullet_Collector.h
+        Bullet_Collector.cpp
         Resources.qrc
 )
 
