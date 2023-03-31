@@ -4,11 +4,11 @@
 #include <QGraphicsScene>
 #include <stdlib.h>
 #include <QList>
+#include "Linked_List.h"
+#include <QDebug>
 
 Blue_Enemy::Blue_Enemy()
 {
-    int random_number = rand() % 550;
-
     setPos(800,random_number);
 
     setPixmap(QPixmap(":/Images/BlueSpaceShip"));
@@ -20,11 +20,20 @@ Blue_Enemy::Blue_Enemy()
     timer->start(50);
 }
 
+void Blue_Enemy::setEnemies_List(Linkedlist *enemies_list)
+{
+    this->enemies_list = enemies_list;
+}
+
 void Blue_Enemy::move()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
         if (typeid(*(colliding_items[i])) == typeid(Bullet)){
+                enemies_list->printList();
+                qDebug() << "";
+                enemies_list->deleteNode(1);
+                enemies_list->printList();
                 // remove them both
                 scene()->removeItem(colliding_items[i]);
                 scene()->removeItem(this);

@@ -1,6 +1,4 @@
 #include "Bullet.h"
-//#include "Red_Enemy.h"
-//#include "Blue_Enemy.h"
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>

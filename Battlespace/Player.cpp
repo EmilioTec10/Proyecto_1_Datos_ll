@@ -30,24 +30,17 @@ void Player::bullets()
 
 }
 
-void Player::spawn_Blue_enemies(){
-    Blue_Enemy *blue_Enemy = new Blue_Enemy();
-    scene()->addItem(blue_Enemy);
-}
-
-void Player::spawn_Red_enemies()
-{
-    Red_Enemy *red_Enemy = new Red_Enemy();
-    scene()->addItem(red_Enemy);
-}
-
 void Player::spawn_enemies(int enemies)
 {
    for (int i = 0; i < enemies; i++){
        Red_Enemy *red_Enemy = new Red_Enemy();
        scene()->addItem(red_Enemy);
+       red_Enemy->setEnemies_List(enemies_list);
+       enemies_list->insertNode(red_Enemy);
        Blue_Enemy *blue_Enemy = new Blue_Enemy();
        scene()->addItem(blue_Enemy);
+       blue_Enemy->setEnemies_List(enemies_list);
+       enemies_list->insertNode(red_Enemy);
    }
 
 }
@@ -55,11 +48,15 @@ void Player::spawn_enemies(int enemies)
 void Player::spawn_hard_enemies(int enemies)
 {
    for (int i = 0; i < enemies; i++){
-       Red_Enemy_Hard *red_Enemy = new Red_Enemy_Hard();
-       scene()->addItem(red_Enemy);
        Blue_Enemy_Hard *blue_Enemy = new Blue_Enemy_Hard();
        scene()->addItem(blue_Enemy);
+       blue_Enemy->setEnemies_List(enemies_list);
+       enemies_list->insertNode(blue_Enemy);
    }
+   Red_Enemy_Hard *red_Enemy = new Red_Enemy_Hard();
+   scene()->addItem(red_Enemy);
+   red_Enemy->setEnemies_List(enemies_list);
+   enemies_list->insertNode(red_Enemy);
 
 }
 
@@ -67,8 +64,12 @@ void Player::spawn_enemies(int enemies, QGraphicsScene *scene)
 {
    for (int i = 0; i < enemies; i++){
        Red_Enemy *red_Enemy = new Red_Enemy();
+       red_Enemy->setEnemies_List(enemies_list);
+       enemies_list->insertNode(red_Enemy);
        scene->addItem(red_Enemy);
        Blue_Enemy *blue_Enemy = new Blue_Enemy();
+       blue_Enemy->setEnemies_List(enemies_list);
+       enemies_list->insertNode(blue_Enemy);
        scene->addItem(blue_Enemy);
    }
 
@@ -76,11 +77,16 @@ void Player::spawn_enemies(int enemies, QGraphicsScene *scene)
 void Player::spawn_hard_enemies(int enemies, QGraphicsScene *scene)
 {
    for (int i = 0; i < enemies; i++){
-       Red_Enemy_Hard *red_Enemy = new Red_Enemy_Hard();
-       scene->addItem(red_Enemy);
+
        Blue_Enemy_Hard *blue_Enemy = new Blue_Enemy_Hard();
+       blue_Enemy->setEnemies_List(enemies_list);
+       enemies_list->insertNode(blue_Enemy);
        scene->addItem(blue_Enemy);
    }
+   Red_Enemy_Hard *red_Enemy = new Red_Enemy_Hard();
+   scene->addItem(red_Enemy);
+   red_Enemy->setEnemies_List(enemies_list);
+   enemies_list->insertNode(red_Enemy);
 
 }
 

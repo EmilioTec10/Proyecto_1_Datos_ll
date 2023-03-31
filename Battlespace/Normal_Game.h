@@ -32,6 +32,7 @@ public:
     QGraphicsScene * scene;
     Player * player;
     void change_speed_bullets();
+
 public slots:
     void decrease_bullets();
     void decrease_health();
@@ -47,6 +48,7 @@ private:
     int health_number;
     int fase_number = 1;
     int wave_number = 1;
+    int waves_info[5];
 };
 
 #endif // NORMAL_GAME_H

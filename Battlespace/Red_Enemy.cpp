@@ -7,8 +7,6 @@
 
 Red_Enemy::Red_Enemy()
 {
-    int random_number = rand() % 550;
-
     setPos(800,random_number);
 
     setPixmap(QPixmap(":/Images/RedSpaceShip"));
@@ -20,6 +18,11 @@ Red_Enemy::Red_Enemy()
     timer->start(50);
 }
 
+void Red_Enemy::setEnemies_List(Linkedlist *enemies_list)
+{
+    this->enemies_list = enemies_list;
+}
+
 void Red_Enemy::move()
 {
     // if bullet collides with enemy, destroy both
@@ -28,6 +31,10 @@ void Red_Enemy::move()
            if (typeid(*(colliding_items[i])) == typeid(Bullet)){
 
                if (red_life == 0){
+                   enemies_list->printList();
+                   qDebug() << "";
+                   enemies_list->deleteNode(1);
+                   enemies_list->printList();
                    // remove them both
                    scene()->removeItem(colliding_items[i]);
                    scene()->removeItem(this);

@@ -1,21 +1,89 @@
 #include "Linked_List.h"
+#include "Blue_Enemy.h"
+#include "Red_Enemy.h"
+#include "Red_Enemy_Hard.h"
+#include "Blue_Enemy_Hard.h"
 #include <QDebug>
 
-Node::Node()
-{
-    data = 0;
-    next = nullptr;
-}
 
-Node::Node(int data)
+Node::Node(Red_Enemy *red_enemy)
 {
-    this->data = data;
+    this->red_enemy = red_enemy;
     this->next = nullptr;
 }
 
-void Linkedlist::insertNode(int data)
+Node::Node(Red_Enemy_Hard *red_hard_enemy)
 {
-    Node* newNode = new Node(data);
+    this->red_hard_enemy = red_hard_enemy;
+    this->next = nullptr;
+}
+
+Node::Node(Blue_Enemy *blue_enemy)
+{
+    this->blue_enemy = blue_enemy;
+    this->next = nullptr;
+}
+
+Node::Node(Blue_Enemy_Hard *blue_hard_enemy)
+{
+    this->blue_hard_enemy = blue_hard_enemy;
+    this->next = nullptr;
+}
+
+void Linkedlist::insertNode(Red_Enemy *red_enemy)
+{
+    Node* newNode = new Node(red_enemy);
+
+    if (head == nullptr) {
+        head = newNode;
+        return;
+    }
+
+    Node* temp = head;
+    while (temp->next != nullptr) {
+
+        temp = temp->next;
+    }
+
+    temp->next = newNode;
+}
+void Linkedlist::insertNode(Blue_Enemy_Hard *blue_hard_enemy)
+{
+    Node* newNode = new Node(blue_hard_enemy);
+
+    if (head == nullptr) {
+        head = newNode;
+        return;
+    }
+
+    Node* temp = head;
+    while (temp->next != nullptr) {
+
+        temp = temp->next;
+    }
+
+    temp->next = newNode;
+}
+void Linkedlist::insertNode(Blue_Enemy *blue_enemy)
+{
+    Node* newNode = new Node(blue_enemy);
+
+    if (head == nullptr) {
+        head = newNode;
+        return;
+    }
+
+    Node* temp = head;
+    while (temp->next != nullptr) {
+
+        temp = temp->next;
+    }
+
+    temp->next = newNode;
+}
+void Linkedlist::insertNode(Red_Enemy_Hard *red_hard_enemy)
+{
+    Node* newNode = new Node(red_hard_enemy);
 
     if (head == nullptr) {
         head = newNode;
@@ -41,8 +109,26 @@ void Linkedlist::printList()
     }
 
     while (temp != nullptr) {
-        qDebug() << temp->data << " , ";
-        temp = temp->next;
+        if (temp->blue_enemy != nullptr){
+
+            qDebug() << "(800, " << temp->blue_enemy->random_number << ")" << " , ";
+            temp = temp->next;
+        }
+        else if (temp->blue_hard_enemy != nullptr){
+
+            qDebug() << "(800, "<< temp->blue_hard_enemy->random_number << ")" << " , ";
+            temp = temp->next;
+        }
+        else if (temp->red_enemy != nullptr){
+
+            qDebug() << "(800, " << temp->red_enemy->random_number << ")" << " , ";
+            temp = temp->next;
+        }
+        else if (temp->red_hard_enemy != nullptr){
+
+            qDebug() << "(800, " << temp->red_hard_enemy->random_number << ")" << " , ";
+            temp = temp->next;
+        }
     }
 }
 

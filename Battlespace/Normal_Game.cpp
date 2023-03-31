@@ -176,7 +176,10 @@ void Normal_Game::check_health()
         QList<QGraphicsItem *> colliding_items = line->collidingItems();
         for (int i = 0, n = colliding_items.size(); i < n; ++i){
             if (typeid(*(colliding_items[i])) == typeid(Red_Enemy) || typeid(*(colliding_items[i])) == typeid(Blue_Enemy)){
-
+                player->enemies_list->printList();
+                player->enemies_list->deleteNode(1);
+                qDebug() << "";
+                player->enemies_list->printList();
                 decrease_health();
             }
         }

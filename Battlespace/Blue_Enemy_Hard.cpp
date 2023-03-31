@@ -7,8 +7,6 @@
 
 Blue_Enemy_Hard::Blue_Enemy_Hard()
 {
-    int random_number = rand() % 550;
-
     setPos(800,random_number);
 
     setPixmap(QPixmap(":/Images/Blue_Hard"));
@@ -20,11 +18,20 @@ Blue_Enemy_Hard::Blue_Enemy_Hard()
     timer->start(50);
 }
 
+void Blue_Enemy_Hard::setEnemies_List(Linkedlist *enemies_list)
+{
+    this->enemies_list = enemies_list;
+}
+
 void Blue_Enemy_Hard::move()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
         if (typeid(*(colliding_items[i])) == typeid(Bullet)){
+                enemies_list->printList();
+                qDebug() << "";
+                enemies_list->deleteNode(1);
+                enemies_list->printList();
                 // remove them both
                 scene()->removeItem(colliding_items[i]);
                 scene()->removeItem(this);
