@@ -8,6 +8,7 @@
 class Win_Window: public QGraphicsView{
 public:
   Win_Window(QWidget * parent=0);
+
   void main_menu();
 
   QGraphicsScene * scene;

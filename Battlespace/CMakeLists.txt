@@ -22,8 +22,6 @@ set(PROJECT_SOURCES
         Player.cpp
         Bullet.h
         Bullet.cpp
-        Enemy.h
-        Enemy.cpp
         Red_Enemy.h
         Red_Enemy.cpp
         Blue_Enemy.h

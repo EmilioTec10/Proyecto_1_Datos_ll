@@ -8,13 +8,21 @@
 class Red_Enemy: public QObject ,public QGraphicsPixmapItem{
     Q_OBJECT
 public:
+
+    Red_Enemy();
+
     int random_number = rand() % 550;
     int red_life = 2;
-    Red_Enemy();
+    int token = 0;
+
     void setEnemies_List(Linkedlist *enemies_list);
+
 public slots:
+
     void move();
+
 private:
+
     Linkedlist *enemies_list;
 };
 

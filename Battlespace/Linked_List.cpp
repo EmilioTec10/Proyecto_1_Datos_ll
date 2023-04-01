@@ -30,9 +30,10 @@ Node::Node(Blue_Enemy_Hard *blue_hard_enemy)
     this->next = nullptr;
 }
 
-void Linkedlist::insertNode(Red_Enemy *red_enemy)
+void Linkedlist::insertNode(Red_Enemy *red_enemy, int token)
 {
     Node* newNode = new Node(red_enemy);
+    newNode->token = token;
 
     if (head == nullptr) {
         head = newNode;
@@ -47,9 +48,10 @@ void Linkedlist::insertNode(Red_Enemy *red_enemy)
 
     temp->next = newNode;
 }
-void Linkedlist::insertNode(Blue_Enemy_Hard *blue_hard_enemy)
+void Linkedlist::insertNode(Blue_Enemy_Hard *blue_hard_enemy, int token)
 {
     Node* newNode = new Node(blue_hard_enemy);
+    newNode->token = token;
 
     if (head == nullptr) {
         head = newNode;
@@ -64,9 +66,10 @@ void Linkedlist::insertNode(Blue_Enemy_Hard *blue_hard_enemy)
 
     temp->next = newNode;
 }
-void Linkedlist::insertNode(Blue_Enemy *blue_enemy)
+void Linkedlist::insertNode(Blue_Enemy *blue_enemy, int token)
 {
     Node* newNode = new Node(blue_enemy);
+    newNode->token = token;
 
     if (head == nullptr) {
         head = newNode;
@@ -81,9 +84,10 @@ void Linkedlist::insertNode(Blue_Enemy *blue_enemy)
 
     temp->next = newNode;
 }
-void Linkedlist::insertNode(Red_Enemy_Hard *red_hard_enemy)
+void Linkedlist::insertNode(Red_Enemy_Hard *red_hard_enemy, int token)
 {
     Node* newNode = new Node(red_hard_enemy);
+    newNode->token = token;
 
     if (head == nullptr) {
         head = newNode;
@@ -95,7 +99,6 @@ void Linkedlist::insertNode(Red_Enemy_Hard *red_hard_enemy)
 
         temp = temp->next;
     }
-
     temp->next = newNode;
 }
 
@@ -132,45 +135,119 @@ void Linkedlist::printList()
     }
 }
 
-void Linkedlist::deleteNode(int node_index)
+void Linkedlist::deleteNode(Blue_Enemy *blue_enemy)
 {
 
-    Node *temp1 = head, *temp2 = NULL;
-    int ListLen = 0;
-
-    if (head == NULL) {
-        qDebug() << "List empty.";
-        return;
+    Node* current = head;
+    Node* prev = NULL;
+    while (current != NULL) {
+        if(current->blue_enemy != nullptr){
+            if (current->token == blue_enemy->token) {
+                if (prev != NULL) {
+                    prev->next = current->next;
+                }
+                else {
+                    head = current->next;
+                }
+                Node* temp = current;
+                current = current->next;
+                delete temp;
+            }
+            else {
+                prev = current;
+                current = current->next;
+            }
+        }
+        else{
+            prev = current;
+            current = current->next;
+        }
     }
+}
+void Linkedlist::deleteNode(Red_Enemy *red_enemy)
+{
 
-    while (temp1 != NULL) {
-        temp1 = temp1->next;
-        ListLen++;
+    Node* current = head;
+    Node* prev = NULL;
+    while (current != NULL) {
+        if(current->blue_enemy != nullptr){
+            if (current->token == red_enemy->token) {
+                if (prev != NULL) {
+                    prev->next = current->next;
+                }
+                else {
+                    head = current->next;
+                }
+                Node* temp = current;
+                current = current->next;
+                delete temp;
+            }
+            else {
+                prev = current;
+                current = current->next;
+            }
+        }
+        else{
+            prev = current;
+            current = current->next;
+        }
     }
+}
 
-    if (ListLen < node_index) {
-        qDebug() << "Index out of range";
-        return;
+void Linkedlist::deleteNode(Blue_Enemy_Hard *blue_hard_enemy)
+{
+    Node* current = head;
+    Node* prev = NULL;
+    while (current != NULL) {
+        if(current->blue_enemy != nullptr){
+            if (current->token == blue_hard_enemy->token) {
+                if (prev != NULL) {
+                    prev->next = current->next;
+                }
+                else {
+                    head = current->next;
+                }
+                Node* temp = current;
+                current = current->next;
+                delete temp;
+            }
+            else {
+                prev = current;
+                current = current->next;
+            }
+        }
+        else{
+            prev = current;
+            current = current->next;
+        }
     }
+}
 
-    temp1 = head;
-
-    if (node_index == 1) {
-
-        // Update head
-        head = head->next;
-        delete temp1;
-        return;
+void Linkedlist::deleteNode(Red_Enemy_Hard *red_hard_enemy)
+{
+    Node* current = head;
+    Node* prev = NULL;
+    while (current != NULL) {
+        if(current->blue_enemy != nullptr){
+            if (current->token == red_hard_enemy->token) {
+                if (prev != NULL) {
+                    prev->next = current->next;
+                }
+                else {
+                    head = current->next;
+                }
+                Node* temp = current;
+                current = current->next;
+                delete temp;
+            }
+            else {
+                prev = current;
+                current = current->next;
+            }
+        }
+        else{
+            prev = current;
+            current = current->next;
+        }
     }
-
-    while (node_index-- > 1) {
-
-        temp2 = temp1;
-
-        temp1 = temp1->next;
-    }
-
-    temp2->next = temp1->next;
-
-    delete temp1;
 }

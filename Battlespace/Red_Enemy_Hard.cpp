@@ -35,7 +35,7 @@ void Red_Enemy_Hard::move()
                if (red_life == 0){
                    enemies_list->printList();
                    qDebug() << "";
-                   enemies_list->deleteNode(1);
+                   enemies_list->deleteNode(this);
                    enemies_list->printList();
                    // remove them both
                    scene()->removeItem(colliding_items[i]);
@@ -60,7 +60,9 @@ void Red_Enemy_Hard::move()
     }
 }
 void Red_Enemy_Hard::move_y(){
+
     int random_number = rand() % 2;
+
     if (random_number == 1){
         if (y() - 50 > 50){
             setPos(x(),y() - 20);
