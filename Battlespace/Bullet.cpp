@@ -6,7 +6,7 @@
 
 Bullet::Bullet()
 {
-    setPixmap(QPixmap(":/Images/red_laser.png"));
+    setPixmap(QPixmap(":/Images/purple_laser.png"));
 
     //Movement of the bullet
     QTimer *timer = new QTimer;

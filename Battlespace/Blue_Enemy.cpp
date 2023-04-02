@@ -11,7 +11,7 @@ Blue_Enemy::Blue_Enemy()
 {
     //Setups
     setPos(800,random_number);
-    setPixmap(QPixmap(":/Images/BlueSpaceShip"));
+    setPixmap(QPixmap(":/Images/Blue_Enemy"));
 
     //Movement of the blue enemy
     QTimer *timer = new QTimer;
@@ -49,7 +49,7 @@ void Blue_Enemy::move()
     }
     //Pasive movement of the blue enemy
     setPos(x() - 10,y());
-    if (pos().x() <= -1){ //Condition if the blue enemy gets to the end of the screen
+    if (pos().x() <= -20){ //Condition if the blue enemy gets to the end of the screen
         scene()->removeItem(this);
         delete this;
     }

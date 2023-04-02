@@ -19,7 +19,7 @@ Hard_Game::Hard_Game(int bullet_speed,int bullets, int ships_number, int health,
     //Creation and configuration of the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
-    scene->setBackgroundBrush(QBrush(QImage(":/Images/space_background (1).png")));
+    scene->setBackgroundBrush(QBrush(QImage(":/Images/background.jpg")));
     QFont font("Arial", 15, QFont::Helvetica);
 
     //Declaration of the private variables
@@ -58,7 +58,7 @@ Hard_Game::Hard_Game(int bullet_speed,int bullets, int ships_number, int health,
 
     //Creation of the player
     player = new Player(bullets_number);
-    player->setPixmap(QPixmap(":/Images/nave (1).png"));
+    player->setPixmap(QPixmap(":/Images/player.png"));
 
     //Add of all the items in the scene
     scene->addItem(player);

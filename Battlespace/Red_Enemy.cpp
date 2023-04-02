@@ -9,7 +9,7 @@ Red_Enemy::Red_Enemy()
 {
     setPos(800,random_number);
 
-    setPixmap(QPixmap(":/Images/RedSpaceShip"));
+    setPixmap(QPixmap(":/Images/Red_Enemy"));
 
     QTimer *timer = new QTimer;
 

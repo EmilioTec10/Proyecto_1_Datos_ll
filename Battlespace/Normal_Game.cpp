@@ -11,6 +11,7 @@
 #include <QGraphicsScene>
 #include <QFont>
 #include <QList>
+#include <QPixmap>
 #include <QtWidgets>
 #include <functional>
 
@@ -19,8 +20,15 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     //Creation and configuration of the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
-    scene->setBackgroundBrush(QBrush(QImage(":/Images/space_background (1).png")));
+    scene->setBackgroundBrush(QBrush(QImage(":/Images/background.jpg")));
     QFont font("Arial", 15, QFont::Helvetica);
+
+    //Creation of the images
+    QPixmap bullets_(":/Images/bullet.png");
+    QGraphicsPixmapItem *myPixmapItem = new QGraphicsPixmapItem(bullets_);
+
+    QPixmap heart(":/Images/heart");
+    QGraphicsPixmapItem *myHeart = new QGraphicsPixmapItem(heart);
 
     //Declaration of the private variables
     this->bullets_speed = bullet_speed;
@@ -58,10 +66,12 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
 
     //Creation of the player
     player = new Player(bullets_number);
-    player->setPixmap(QPixmap(":/Images/nave (1).png"));
+    player->setPixmap(QPixmap(":/Images/player.png"));
 
     //Add of all the items in the scene
     scene->addItem(player);
+    scene->addItem(myPixmapItem);
+    scene->addItem(myHeart);
     scene->addItem(bullets_label);
     scene->addItem(bullets_speed_label);
     scene->addItem(health_label);
@@ -69,8 +79,11 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     scene->addItem(fase_label);
 
     //Set positions of the items in the scene
-    bullets_speed_label->setPos(0,20);
-    health_label->setPos(0,40);
+    myPixmapItem->setPos(0,0);
+    myHeart->setPos(50,0);
+    bullets_label->setPos(0,50);
+    bullets_speed_label->setPos(0,70);
+    health_label->setPos(0,90);
     wave_label->setPos(700,20);
     fase_label->setPos(700,0);
 

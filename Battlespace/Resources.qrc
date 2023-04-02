@@ -1,12 +1,14 @@
 <RCC>
     <qresource prefix="/Images">
-        <file>nave (1).png</file>
-        <file>bullet (1).png</file>
-        <file>RedSpaceShip.png</file>
-        <file>BlueSpaceShip.png</file>
-        <file>space_background (1).png</file>
         <file>Red_hard.png</file>
         <file>Blue_Hard.png</file>
-        <file>red_laser.png</file>
+        <file>background.jpg</file>
+        <file>Red_Enemy.png</file>
+        <file>player.png</file>
+        <file>Blue_Enemy.png</file>
+        <file>purple_laser.png</file>
+        <file>bullet.png</file>
+        <file>heart.png</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>
