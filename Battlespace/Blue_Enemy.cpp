@@ -31,6 +31,7 @@ void Blue_Enemy::move()
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
         if (typeid(*(colliding_items[i])) == typeid(Bullet)){ //Condition if the blue enemy colides with the bullet
 
+            if (blue_life <= 0){
                 //List of enemies
                 enemies_list->printList();
                 qDebug() << "";
@@ -45,6 +46,24 @@ void Blue_Enemy::move()
                 delete colliding_items[i];
                 delete this;
                 return;
+            }
+            else{
+                Bullet *bu =  qgraphicsitem_cast<Bullet *>(colliding_items[i]);
+                if (bu->damaged){
+                    blue_life = blue_life - 0.5;
+                    qDebug() << "blue: " << blue_life;
+                    scene()->removeItem(colliding_items[i]);
+                    delete colliding_items[i];
+                    return;
+                }
+                else{
+                    scene()->removeItem(colliding_items[i]);
+                    scene()->removeItem(this);
+                    delete colliding_items[i];
+                    delete this;
+                    return;
+                }
+            }
         }
     }
     //Pasive movement of the blue enemy

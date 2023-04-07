@@ -44,10 +44,20 @@ void Red_Enemy::move()
                    return;
                }
                else{
-                   red_life--;
-                   scene()->removeItem(colliding_items[i]);
-                   delete colliding_items[i];
-                   return;
+                   Bullet *bu =  qgraphicsitem_cast<Bullet *>(colliding_items[i]);
+                   if (bu->damaged){
+                       red_life = red_life - 0.5;
+                       qDebug() << "red: " << red_life;
+                       scene()->removeItem(colliding_items[i]);
+                       delete colliding_items[i];
+                       return;
+                   }
+                   else{
+                       red_life--;
+                       scene()->removeItem(colliding_items[i]);
+                       delete colliding_items[i];
+                       return;
+                   }
                }
            }
        }

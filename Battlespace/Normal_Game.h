@@ -6,6 +6,7 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include "Player.h"
+#include "Bullet_Collector.h"
 
 class Normal_Game: public QGraphicsView{
     Q_OBJECT
@@ -25,8 +26,11 @@ public:
     QTimer *setBullets;
     QTimer *check;
 
+    Collector *collector = new Collector();
+
     //Changable labels
     QGraphicsTextItem *bullets_label;
+    QGraphicsTextItem *bullet_collector;
     QGraphicsTextItem *bullets_speed_label;
     QGraphicsTextItem *health_label;
     QGraphicsTextItem *wave_label;

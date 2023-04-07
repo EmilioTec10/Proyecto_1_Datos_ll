@@ -45,6 +45,11 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     bullets_speed_label->setFont(font);
     bullets_speed_label->setDefaultTextColor(Qt::red);
 
+    //Bullet collector label
+    bullet_collector = new QGraphicsTextItem("Bullet Collector: " + QString::number(collector->size));
+    bullet_collector->setFont(font);
+    bullet_collector->setDefaultTextColor(Qt::red);
+
     //Health Label
     health_label = new QGraphicsTextItem("Health: " + QString::number(health));
     health_label->setFont(font);
@@ -73,6 +78,7 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     scene->addItem(myPixmapItem);
     scene->addItem(myHeart);
     scene->addItem(bullets_label);
+    scene->addItem(bullet_collector);
     scene->addItem(bullets_speed_label);
     scene->addItem(health_label);
     scene->addItem(wave_label);
@@ -82,8 +88,9 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     myPixmapItem->setPos(0,0);
     myHeart->setPos(50,0);
     bullets_label->setPos(0,50);
-    bullets_speed_label->setPos(0,70);
-    health_label->setPos(0,90);
+    bullet_collector->setPos(0,70);
+    bullets_speed_label->setPos(0,90);
+    health_label->setPos(0,110);
     wave_label->setPos(700,20);
     fase_label->setPos(700,0);
 
@@ -92,6 +99,8 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     player->setFocus();
     player->setPos(0,150);
     player->set_enemies(ships_number);
+    player->setCollector(collector);
+    player->set_CollectorLabel(bullet_collector);
 
     //Spawn enemies at the beginning
     player->spawn_enemies(ships_number, scene);
@@ -205,16 +214,17 @@ void Normal_Game::check_health()
         QList<QGraphicsItem *> colliding_items = line->collidingItems();
         for (int i = 0, n = colliding_items.size(); i < n; ++i){
             if (typeid(*(colliding_items[i])) == typeid(Red_Enemy)){ //Checks if the red enemy is colliding with the line
+                Red_Enemy *red_ne =  qgraphicsitem_cast<Red_Enemy *>(colliding_items[i]);
                 player->enemies_list->printList();
-                //player->enemies_list->deleteNode(1);
+                player->enemies_list->deleteNode(red_ne);
                 qDebug() << "";
                 player->enemies_list->printList();
                 decrease_health();
             }
             else if (typeid(*(colliding_items[i])) == typeid(Blue_Enemy)){ //Checks if the blue enemy is colliding with the line
+                Blue_Enemy *blue_ne =  qgraphicsitem_cast<Blue_Enemy *>(colliding_items[i]);
                 player->enemies_list->printList();
-                qDebug() << typeid(*(colliding_items[i])).name();
-                //player->enemies_list->deleteNode(*(colliding_items[i]));
+                player->enemies_list->deleteNode(blue_ne);
                 qDebug() << "";
                 player->enemies_list->printList();
                 decrease_health();

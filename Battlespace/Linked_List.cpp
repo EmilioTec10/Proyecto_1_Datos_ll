@@ -3,6 +3,7 @@
 #include "Red_Enemy.h"
 #include "Red_Enemy_Hard.h"
 #include "Blue_Enemy_Hard.h"
+#include <iostream>
 #include <QDebug>
 
 
