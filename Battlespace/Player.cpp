@@ -7,7 +7,7 @@
 #include "Blue_Enemy_Hard.h"
 #include "Red_Enemy_Hard.h"
 #include <QTimer>
-#include <QDebug>
+#include <iostream>
 #include <QObject>
 
 Player::Player(int bullets_number)

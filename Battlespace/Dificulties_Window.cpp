@@ -15,7 +15,7 @@ void Dificulties::easy()
 
 void Dificulties::normal()
 {
-    Normal_Game * normal = new Normal_Game(1000, 10, 2, 5);
+    Normal_Game * normal = new Normal_Game(1000, 150, 2, 5);
     normal->show();
     this->close();
 }

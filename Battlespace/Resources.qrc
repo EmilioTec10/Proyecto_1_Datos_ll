@@ -9,6 +9,7 @@
         <file>purple_laser.png</file>
         <file>bullet.png</file>
         <file>heart.png</file>
+        <file>X.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

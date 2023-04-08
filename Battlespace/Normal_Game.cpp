@@ -13,6 +13,7 @@
 #include <QList>
 #include <QPixmap>
 #include <QtWidgets>
+#include <iostream>
 #include <functional>
 
 Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int health, QWidget *parent){
@@ -26,6 +27,9 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     //Creation of the images
     QPixmap bullets_(":/Images/bullet.png");
     QGraphicsPixmapItem *myPixmapItem = new QGraphicsPixmapItem(bullets_);
+
+    QPixmap x(":/Images/X.png");
+    QGraphicsPixmapItem *myX = new QGraphicsPixmapItem(x);
 
     QPixmap heart(":/Images/heart");
     QGraphicsPixmapItem *myHeart = new QGraphicsPixmapItem(heart);
@@ -76,6 +80,7 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     //Add of all the items in the scene
     scene->addItem(player);
     scene->addItem(myPixmapItem);
+    scene->addItem(myX);
     scene->addItem(myHeart);
     scene->addItem(bullets_label);
     scene->addItem(bullet_collector);
@@ -86,6 +91,7 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
 
     //Set positions of the items in the scene
     myPixmapItem->setPos(0,0);
+    myX->setPos(25,0);
     myHeart->setPos(50,0);
     bullets_label->setPos(0,50);
     bullet_collector->setPos(0,70);
@@ -215,18 +221,24 @@ void Normal_Game::check_health()
         for (int i = 0, n = colliding_items.size(); i < n; ++i){
             if (typeid(*(colliding_items[i])) == typeid(Red_Enemy)){ //Checks if the red enemy is colliding with the line
                 Red_Enemy *red_ne =  qgraphicsitem_cast<Red_Enemy *>(colliding_items[i]);
-                player->enemies_list->printList();
+                //player->enemies_list->printList();
                 player->enemies_list->deleteNode(red_ne);
-                qDebug() << "";
+                qDebug() << "se ha eliminado un enemigo rojo";
+                //qDebug() << "";
+                std::cout << "[ ";
                 player->enemies_list->printList();
+                std::cout << " ]" << std::endl;
                 decrease_health();
             }
             else if (typeid(*(colliding_items[i])) == typeid(Blue_Enemy)){ //Checks if the blue enemy is colliding with the line
                 Blue_Enemy *blue_ne =  qgraphicsitem_cast<Blue_Enemy *>(colliding_items[i]);
-                player->enemies_list->printList();
+                //player->enemies_list->printList();
                 player->enemies_list->deleteNode(blue_ne);
-                qDebug() << "";
+                qDebug() << "se ha eliminado un enemigo azul";
+                //qDebug() << "";
+                std::cout << "[ ";
                 player->enemies_list->printList();
+                std::cout << " ]" << std::endl;
                 decrease_health();
             }
         }

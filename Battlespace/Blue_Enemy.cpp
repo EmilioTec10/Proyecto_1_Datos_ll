@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <QList>
 #include "Linked_List.h"
+#include <iostream>
 #include <QDebug>
 
 Blue_Enemy::Blue_Enemy()
@@ -33,10 +34,10 @@ void Blue_Enemy::move()
 
             if (blue_life <= 0){
                 //List of enemies
-                enemies_list->printList();
-                qDebug() << "";
                 enemies_list->deleteNode(this);
+                std::cout << "[ ";
                 enemies_list->printList();
+                std::cout << " ]" << std::endl;
 
                 // remove them both
                 scene()->removeItem(colliding_items[i]);
@@ -59,6 +60,11 @@ void Blue_Enemy::move()
                 else{
                     scene()->removeItem(colliding_items[i]);
                     scene()->removeItem(this);
+                    enemies_list->deleteNode(this);
+                    qDebug() << "se ha eliminado un enemigo azul";
+                    std::cout << "[ ";
+                    enemies_list->printList();
+                    std::cout << " ]" << std::endl;
                     delete colliding_items[i];
                     delete this;
                     return;

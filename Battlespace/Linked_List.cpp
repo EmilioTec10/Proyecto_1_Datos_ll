@@ -4,7 +4,7 @@
 #include "Red_Enemy_Hard.h"
 #include "Blue_Enemy_Hard.h"
 #include <iostream>
-#include <QDebug>
+#include <iostream>
 
 
 Node::Node(Red_Enemy *red_enemy)
@@ -113,24 +113,25 @@ void Linkedlist::printList()
     }
 
     while (temp != nullptr) {
+
         if (temp->blue_enemy != nullptr){
 
-            qDebug() << "(800, " << temp->blue_enemy->random_number << ")" << " , ";
+            std::cout << "(800, " << temp->blue_enemy->random_number << ")" << " , ";
             temp = temp->next;
         }
         else if (temp->blue_hard_enemy != nullptr){
 
-            qDebug() << "(800, "<< temp->blue_hard_enemy->random_number << ")" << " , ";
+            std::cout << "(800, "<< temp->blue_hard_enemy->random_number << ")" << " , ";
             temp = temp->next;
         }
         else if (temp->red_enemy != nullptr){
 
-            qDebug() << "(800, " << temp->red_enemy->random_number << ")" << " , ";
+            std::cout << "(800, " << temp->red_enemy->random_number << ")" << " , ";
             temp = temp->next;
         }
         else if (temp->red_hard_enemy != nullptr){
 
-            qDebug() << "(800, " << temp->red_hard_enemy->random_number << ")" << " , ";
+            std::cout << "(800, " << temp->red_hard_enemy->random_number << ")" << " , ";
             temp = temp->next;
         }
     }
@@ -171,7 +172,7 @@ void Linkedlist::deleteNode(Red_Enemy *red_enemy)
     Node* current = head;
     Node* prev = NULL;
     while (current != NULL) {
-        if(current->blue_enemy != nullptr){
+        if(current->red_enemy != nullptr){
             if (current->token == red_enemy->token) {
                 if (prev != NULL) {
                     prev->next = current->next;
@@ -200,7 +201,7 @@ void Linkedlist::deleteNode(Blue_Enemy_Hard *blue_hard_enemy)
     Node* current = head;
     Node* prev = NULL;
     while (current != NULL) {
-        if(current->blue_enemy != nullptr){
+        if(current->blue_hard_enemy != nullptr){
             if (current->token == blue_hard_enemy->token) {
                 if (prev != NULL) {
                     prev->next = current->next;
@@ -229,7 +230,7 @@ void Linkedlist::deleteNode(Red_Enemy_Hard *red_hard_enemy)
     Node* current = head;
     Node* prev = NULL;
     while (current != NULL) {
-        if(current->blue_enemy != nullptr){
+        if(current->red_hard_enemy != nullptr){
             if (current->token == red_hard_enemy->token) {
                 if (prev != NULL) {
                     prev->next = current->next;
