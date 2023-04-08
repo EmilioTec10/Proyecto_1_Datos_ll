@@ -1,0 +1,303 @@
+{
+	"BUILD_DIR" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/Proyecto_1_Datos_ll_autogen",
+	"CMAKE_BINARY_DIR" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace",
+	"CMAKE_EXECUTABLE" : "/opt/Clion/clion-2023.1/bin/cmake/linux/x64/bin/cmake",
+	"CMAKE_LIST_FILES" : 
+	[
+		"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/CMakeLists.txt",
+		"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/3.25.2/CMakeSystem.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake",
+		"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/3.25.2/CMakeCXXCompiler.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeGenericSystem.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/UnixPaths.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXInformation.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/GNU.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseArguments.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QComposePlatformInputContextPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSEmulatorIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsEglDeviceIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsGbmIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSX11IntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevKeyboardPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevMousePlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTabletPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTouchScreenPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QIbusPlatformInputContextPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLibInputPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLinuxFbIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalEglIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QVncIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbEglIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbGlxIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake",
+		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeParseArguments.cmake",
+		"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Resources.qrc"
+	],
+	"CMAKE_SOURCE_DIR" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace",
+	"DEP_FILE" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/Proyecto_1_Datos_ll_autogen/deps",
+	"DEP_FILE_RULE_NAME" : "Proyecto_1_Datos_ll_autogen/timestamp",
+	"HEADERS" : 
+	[
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Blue_Enemy.h",
+			"MU",
+			"EWIEGA46WW/moc_Blue_Enemy.cpp",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Blue_Enemy_Hard.h",
+			"MU",
+			"EWIEGA46WW/moc_Blue_Enemy_Hard.cpp",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Bullet.h",
+			"MU",
+			"EWIEGA46WW/moc_Bullet.cpp",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Bullet_Collector.h",
+			"MU",
+			"EWIEGA46WW/moc_Bullet_Collector.cpp",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Dificulties_Window.h",
+			"MU",
+			"EWIEGA46WW/moc_Dificulties_Window.cpp",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Game_Over.h",
+			"MU",
+			"EWIEGA46WW/moc_Game_Over.cpp",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Hard_Game.h",
+			"MU",
+			"EWIEGA46WW/moc_Hard_Game.cpp",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Linked_List.h",
+			"MU",
+			"EWIEGA46WW/moc_Linked_List.cpp",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Normal_Game.h",
+			"MU",
+			"EWIEGA46WW/moc_Normal_Game.cpp",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Player.h",
+			"MU",
+			"EWIEGA46WW/moc_Player.cpp",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Raged_Powers_Window.h",
+			"MU",
+			"EWIEGA46WW/moc_Raged_Powers_Window.cpp",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Red_Enemy.h",
+			"MU",
+			"EWIEGA46WW/moc_Red_Enemy.cpp",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Red_Enemy_Hard.h",
+			"MU",
+			"EWIEGA46WW/moc_Red_Enemy_Hard.cpp",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Win_Window.h",
+			"MU",
+			"EWIEGA46WW/moc_Win_Window.cpp",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/XML_Reader.h",
+			"MU",
+			"EWIEGA46WW/moc_XML_Reader.cpp",
+			null
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/Proyecto_1_Datos_ll_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/Proyecto_1_Datos_ll_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB" ],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/usr/include/x86_64-linux-gnu/qt5",
+		"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+		"/usr/include/x86_64-linux-gnu/qt5/QtGui",
+		"/usr/include/x86_64-linux-gnu/qt5/QtCore",
+		"/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++",
+		"/usr/include/c++/11",
+		"/usr/include/x86_64-linux-gnu/c++/11",
+		"/usr/include/c++/11/backward",
+		"/usr/lib/gcc/x86_64-linux-gnu/11/include",
+		"/usr/local/include",
+		"/usr/include/x86_64-linux-gnu",
+		"/usr/include"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/usr/bin/c++",
+		"-dM",
+		"-E",
+		"-c",
+		"/opt/Clion/clion-2023.1/bin/cmake/linux/x64/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/Proyecto_1_Datos_ll_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 4,
+	"PARSE_CACHE_FILE" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/Proyecto_1_Datos_ll_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
+	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
+	"QT_VERSION_MAJOR" : 5,
+	"QT_VERSION_MINOR" : 15,
+	"SETTINGS_FILE" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/Proyecto_1_Datos_ll_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Blue_Enemy.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Blue_Enemy_Hard.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Bullet.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Bullet_Collector.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Dificulties_Window.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Game_Over.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Hard_Game.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Linked_List.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Normal_Game.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Player.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Raged_Powers_Window.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Red_Enemy.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Red_Enemy_Hard.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Win_Window.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/XML_Reader.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/main.cpp",
+			"MU",
+			null
+		]
+	],
+	"UIC_OPTIONS" : [],
+	"UIC_SEARCH_PATHS" : [],
+	"UIC_SKIP" : [],
+	"UIC_UI_FILES" : [],
+	"VERBOSITY" : 0
+}

@@ -1,0 +1,9 @@
+/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/Proyecto_1_Datos_ll.dir
+/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/list_install_components.dir
+/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/install.dir
+/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/install/local.dir
+/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/install/strip.dir
+/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/Proyecto_1_Datos_ll_autogen_timestamp_deps.dir
+/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/Proyecto_1_Datos_ll_autogen.dir

@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file>Red_hard.png</file>
+        <file>Blue_Hard.png</file>
+        <file>background.jpg</file>
+        <file>Red_Enemy.png</file>
+        <file>player.png</file>
+        <file>Blue_Enemy.png</file>
+        <file>purple_laser.png</file>
+        <file>bullet.png</file>
+        <file>heart.png</file>
+    </qresource>
+    <qresource prefix="/"/>
+</RCC>

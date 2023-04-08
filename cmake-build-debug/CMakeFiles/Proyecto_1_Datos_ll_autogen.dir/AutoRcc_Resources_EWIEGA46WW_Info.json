@@ -1,0 +1,30 @@
+{
+	"BUILD_DIR" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/Proyecto_1_Datos_ll_autogen",
+	"CMAKE_BINARY_DIR" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace",
+	"CMAKE_SOURCE_DIR" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace",
+	"INCLUDE_DIR" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/Proyecto_1_Datos_ll_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/heart.png",
+		"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Blue_Hard.png",
+		"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/player.png",
+		"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Blue_Enemy.png",
+		"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Red_Enemy.png",
+		"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Red_hard.png",
+		"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/bullet.png",
+		"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/purple_laser.png",
+		"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/background.jpg"
+	],
+	"LOCK_FILE" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/Proyecto_1_Datos_ll_autogen.dir/AutoRcc_Resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "Resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_Resources.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt5/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/CMakeFiles/Proyecto_1_Datos_ll_autogen.dir/AutoRcc_Resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Resources.qrc",
+	"VERBOSITY" : 0
+}
