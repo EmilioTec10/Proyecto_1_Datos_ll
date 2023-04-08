@@ -73,6 +73,8 @@ void Player::spawn_hard_enemies(int enemies)
        scene()->addItem(blue_Enemy);
        blue_Enemy->setEnemies_List(enemies_list);
        enemies_list->insertNode(blue_Enemy, blue_Enemy->token);
+
+       blue_hard_recursive++;
    }
    Red_Enemy_Hard *red_Enemy = new Red_Enemy_Hard();
    red_Enemy->token = red_hard_recursive;
@@ -122,6 +124,8 @@ void Player::spawn_hard_enemies(int enemies, QGraphicsScene *scene)
        scene->addItem(blue_Enemy);
 
        blue_Enemy->token = blue_hard;
+
+       blue_hard++;
    }
    Red_Enemy_Hard *red_Enemy = new Red_Enemy_Hard();
    red_Enemy->token = red_hard;

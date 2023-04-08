@@ -259,7 +259,7 @@ void Normal_Game::increase_wave()
 
 void Normal_Game::increase_fase()
 {
-    if (fase_number == 3){
+    if (fase_number == 5){
         wave_timer->stop();
         fase_timer->stop();
         Win_Window *win_Window = new Win_Window();

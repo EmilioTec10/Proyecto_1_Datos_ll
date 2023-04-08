@@ -32,8 +32,6 @@ void Red_Enemy::move()
            if (typeid(*(colliding_items[i])) == typeid(Bullet)){
 
                if (red_life == 0){
-                   //enemies_list->printList();
-                   //qDebug() << "";
                    enemies_list->deleteNode(this);
                    qDebug() << "se ha eliminado un enemigo rojo";
                    std::cout << "[ ";

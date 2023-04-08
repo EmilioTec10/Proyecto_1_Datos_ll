@@ -4,6 +4,8 @@
 #include <QGraphicsScene>
 #include <stdlib.h>
 #include <QList>
+#include <iostream>
+#include <QDebug>
 
 Blue_Enemy_Hard::Blue_Enemy_Hard()
 {
@@ -29,11 +31,12 @@ void Blue_Enemy_Hard::move()
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
         if (typeid(*(colliding_items[i])) == typeid(Bullet)){ //Condition if the blue enemy colides with the bullet
 
+            if (blue_life <= 0){
                 //List of enemies
-                enemies_list->printList();
-                qDebug() << "";
                 enemies_list->deleteNode(this);
+                std::cout << "[ ";
                 enemies_list->printList();
+                std::cout << " ]" << std::endl;
 
                 // remove them both
                 scene()->removeItem(colliding_items[i]);
@@ -43,6 +46,29 @@ void Blue_Enemy_Hard::move()
                 delete colliding_items[i];
                 delete this;
                 return;
+            }
+            else{
+                Bullet *bu =  qgraphicsitem_cast<Bullet *>(colliding_items[i]);
+                if (bu->damaged){
+                    blue_life = blue_life - 0.5;
+                    qDebug() << "blue: " << blue_life;
+                    scene()->removeItem(colliding_items[i]);
+                    delete colliding_items[i];
+                    return;
+                }
+                else{
+                    scene()->removeItem(colliding_items[i]);
+                    scene()->removeItem(this);
+                    enemies_list->deleteNode(this);
+                    qDebug() << "se ha eliminado un enemigo azul";
+                    std::cout << "[ ";
+                    enemies_list->printList();
+                    std::cout << " ]" << std::endl;
+                    delete colliding_items[i];
+                    delete this;
+                    return;
+                }
+            }
         }
     }
     //Pasive movement of the blue enemy
