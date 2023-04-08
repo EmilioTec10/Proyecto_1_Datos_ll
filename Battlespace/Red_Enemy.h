@@ -12,7 +12,7 @@ public:
     Red_Enemy();
 
     int random_number = rand() % 550;
-    int red_life = 2;
+    float red_life = 2.00;
     int token = 0;
 
     void setEnemies_List(Linkedlist *enemies_list);

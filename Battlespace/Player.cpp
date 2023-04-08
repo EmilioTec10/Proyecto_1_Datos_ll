@@ -7,7 +7,7 @@
 #include "Blue_Enemy_Hard.h"
 #include "Red_Enemy_Hard.h"
 #include <QTimer>
-#include <QDebug>
+#include <iostream>
 #include <QObject>
 
 Player::Player(int bullets_number)
@@ -19,10 +19,18 @@ void Player::bullets()
 {
 
     if (bullets_number == 0){
-        return;
+        if (collector->size != 0){
+            collector->useBullet(scene(), x(), y());
+            bullet_collector->setPlainText("Bullet Collector: " + QString::number(collector->size));
+        }
+        else{
+            return;
+        }
     }
     else{
         Bullet *bullet = new Bullet();
+        bullet->setCollector(collector);
+        bullet->set_CollectorLabel(bullet_collector);
         bullet->setPos(x()+110,y()+35);
         scene()->addItem(bullet);
         bullets_number--;
@@ -126,8 +134,19 @@ void Player::spawn_hard_enemies(int enemies, QGraphicsScene *scene)
 
 void Player::set_enemies(int enemies)
 {
- this->enemies = enemies;
+    this->enemies = enemies;
 }
+
+void Player::setCollector(Collector *collector)
+{
+    this->collector = collector;
+}
+
+void Player::set_CollectorLabel(QGraphicsTextItem *bullet_collector)
+{
+    this->bullet_collector = bullet_collector;
+}
+
 
 void Player::conect()
 {

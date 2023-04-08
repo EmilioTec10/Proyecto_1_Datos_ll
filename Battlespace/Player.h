@@ -3,7 +3,9 @@
 
 #include <QGraphicsPixmapItem>
 #include <QObject>
+#include <QGraphicsTextItem>
 #include "Linked_List.h"
+#include "Bullet_Collector.h"
 
 class Player: public QObject ,public QGraphicsPixmapItem{
     Q_OBJECT
@@ -17,6 +19,8 @@ public:
     void spawn_enemies(int enemies, QGraphicsScene *scene);
     void spawn_hard_enemies(int enemies, QGraphicsScene *scene);
     void set_enemies(int enemies);
+    void setCollector(Collector *collector);
+    void set_CollectorLabel(QGraphicsTextItem *bullet_collector);
 
     Linkedlist *enemies_list = new Linkedlist();
 
@@ -30,5 +34,7 @@ public slots:
 
 private:
     int enemies;
+    QGraphicsTextItem *bullet_collector;
+    Collector *collector;
 };
 #endif // PLAYER_H
