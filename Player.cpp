@@ -7,8 +7,9 @@
 #include "Blue_Enemy_Hard.h"
 #include "Red_Enemy_Hard.h"
 #include <QTimer>
-#include <QDebug>
+#include <iostream>
 #include <QObject>
+#include <QDebug>
 
 Player::Player(int bullets_number)
 {
@@ -19,10 +20,18 @@ void Player::bullets()
 {
 
     if (bullets_number == 0){
-        return;
+        if (collector->size != 0){
+            collector->useBullet(scene(), x(), y());
+            bullet_collector->setPlainText("Bullet Collector: " + QString::number(collector->size));
+        }
+        else{
+            return;
+        }
     }
     else{
         Bullet *bullet = new Bullet();
+        bullet->setCollector(collector);
+        bullet->set_CollectorLabel(bullet_collector);
         bullet->setPos(x()+110,y()+35);
         scene()->addItem(bullet);
         bullets_number--;
@@ -33,24 +42,24 @@ int blue_recursive = 1;
 int red_recursive = 1;
 void Player::spawn_enemies(int enemies)
 {
-   for (int i = 0; i < enemies; i++){
-       Red_Enemy *red_Enemy = new Red_Enemy();
-       red_Enemy->token = red_recursive;
-       scene()->addItem(red_Enemy);
-       red_Enemy->setEnemies_List(enemies_list);
-       enemies_list->insertNode(red_Enemy, red_Enemy->token);
-       Blue_Enemy *blue_Enemy = new Blue_Enemy();
-       blue_Enemy->token = blue_recursive;
-       scene()->addItem(blue_Enemy);
-       blue_Enemy->setEnemies_List(enemies_list);
-       enemies_list->insertNode(blue_Enemy, blue_Enemy->token);
+    for (int i = 0; i < enemies; i++){
+        Red_Enemy *red_Enemy = new Red_Enemy();
+        red_Enemy->token = red_recursive;
+        scene()->addItem(red_Enemy);
+        red_Enemy->setEnemies_List(enemies_list);
+        enemies_list->insertNode(red_Enemy, red_Enemy->token);
+        Blue_Enemy *blue_Enemy = new Blue_Enemy();
+        blue_Enemy->token = blue_recursive;
+        scene()->addItem(blue_Enemy);
+        blue_Enemy->setEnemies_List(enemies_list);
+        enemies_list->insertNode(blue_Enemy, blue_Enemy->token);
 
         qDebug() << blue_Enemy->token;
         qDebug() << red_Enemy->token;
 
-       blue_recursive++;
-       red_recursive++;
-   }
+        blue_recursive++;
+        red_recursive++;
+    }
 
 }
 
@@ -59,20 +68,22 @@ int blue_hard_recursive = 0;
 
 void Player::spawn_hard_enemies(int enemies)
 {
-   for (int i = 0; i < enemies; i++){
-       Blue_Enemy_Hard *blue_Enemy = new Blue_Enemy_Hard();
-       blue_Enemy->token = blue_hard_recursive;
-       scene()->addItem(blue_Enemy);
-       blue_Enemy->setEnemies_List(enemies_list);
-       enemies_list->insertNode(blue_Enemy, blue_Enemy->token);
-   }
-   Red_Enemy_Hard *red_Enemy = new Red_Enemy_Hard();
-   red_Enemy->token = red_hard_recursive;
-   scene()->addItem(red_Enemy);
-   red_Enemy->setEnemies_List(enemies_list);
-   enemies_list->insertNode(red_Enemy, red_Enemy->token);
+    for (int i = 0; i < enemies; i++){
+        Blue_Enemy_Hard *blue_Enemy = new Blue_Enemy_Hard();
+        blue_Enemy->token = blue_hard_recursive;
+        scene()->addItem(blue_Enemy);
+        blue_Enemy->setEnemies_List(enemies_list);
+        enemies_list->insertNode(blue_Enemy, blue_Enemy->token);
 
-   red_hard_recursive++;
+        blue_hard_recursive++;
+    }
+    Red_Enemy_Hard *red_Enemy = new Red_Enemy_Hard();
+    red_Enemy->token = red_hard_recursive;
+    scene()->addItem(red_Enemy);
+    red_Enemy->setEnemies_List(enemies_list);
+    enemies_list->insertNode(red_Enemy, red_Enemy->token);
+
+    red_hard_recursive++;
 
 }
 
@@ -81,22 +92,22 @@ int blue = 0;
 
 void Player::spawn_enemies(int enemies, QGraphicsScene *scene)
 {
-   for (int i = 0; i < enemies; i++){
-       Red_Enemy *red_Enemy = new Red_Enemy();
-       red_Enemy->token = red;
-       red_Enemy->setEnemies_List(enemies_list);
-       enemies_list->insertNode(red_Enemy, red_Enemy->token);
-       scene->addItem(red_Enemy);
-       Blue_Enemy *blue_Enemy = new Blue_Enemy();
-       blue_Enemy->token = blue;
-       blue_Enemy->setEnemies_List(enemies_list);
-       enemies_list->insertNode(blue_Enemy, blue_Enemy->token);
-       scene->addItem(blue_Enemy);
-       qDebug() << blue_Enemy->token;
+    for (int i = 0; i < enemies; i++){
+        Red_Enemy *red_Enemy = new Red_Enemy();
+        red_Enemy->token = red;
+        red_Enemy->setEnemies_List(enemies_list);
+        enemies_list->insertNode(red_Enemy, red_Enemy->token);
+        scene->addItem(red_Enemy);
+        Blue_Enemy *blue_Enemy = new Blue_Enemy();
+        blue_Enemy->token = blue;
+        blue_Enemy->setEnemies_List(enemies_list);
+        enemies_list->insertNode(blue_Enemy, blue_Enemy->token);
+        scene->addItem(blue_Enemy);
+        qDebug() << blue_Enemy->token;
 
-       red++;
-       blue++;
-   }
+        red++;
+        blue++;
+    }
 
 }
 
@@ -105,29 +116,42 @@ int blue_hard = 0;
 
 void Player::spawn_hard_enemies(int enemies, QGraphicsScene *scene)
 {
-   for (int i = 0; i < enemies; i++){
+    for (int i = 0; i < enemies; i++){
 
-       Blue_Enemy_Hard *blue_Enemy = new Blue_Enemy_Hard();
-       blue_Enemy->token = blue_hard;
-       blue_Enemy->setEnemies_List(enemies_list);
-       enemies_list->insertNode(blue_Enemy, blue_Enemy->token);
-       scene->addItem(blue_Enemy);
+        Blue_Enemy_Hard *blue_Enemy = new Blue_Enemy_Hard();
+        blue_Enemy->token = blue_hard;
+        blue_Enemy->setEnemies_List(enemies_list);
+        enemies_list->insertNode(blue_Enemy, blue_Enemy->token);
+        scene->addItem(blue_Enemy);
 
-       blue_Enemy->token = blue_hard;
-   }
-   Red_Enemy_Hard *red_Enemy = new Red_Enemy_Hard();
-   red_Enemy->token = red_hard;
-   scene->addItem(red_Enemy);
-   red_Enemy->setEnemies_List(enemies_list);
-   enemies_list->insertNode(red_Enemy, red_Enemy->token);
+        blue_Enemy->token = blue_hard;
 
-   red_hard++;
+        blue_hard++;
+    }
+    Red_Enemy_Hard *red_Enemy = new Red_Enemy_Hard();
+    red_Enemy->token = red_hard;
+    scene->addItem(red_Enemy);
+    red_Enemy->setEnemies_List(enemies_list);
+    enemies_list->insertNode(red_Enemy, red_Enemy->token);
+
+    red_hard++;
 }
 
 void Player::set_enemies(int enemies)
 {
- this->enemies = enemies;
+    this->enemies = enemies;
 }
+
+void Player::setCollector(Collector *collector)
+{
+    this->collector = collector;
+}
+
+void Player::set_CollectorLabel(QGraphicsTextItem *bullet_collector)
+{
+    this->bullet_collector = bullet_collector;
+}
+
 
 void Player::conect()
 {

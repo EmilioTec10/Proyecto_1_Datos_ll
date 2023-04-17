@@ -53,7 +53,10 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     bullets_label = new QGraphicsTextItem("Bullets: " + QString::number(bullets_number));
     bullets_label->setFont(font);
     bullets_label->setDefaultTextColor(Qt::red);
-
+    //Bullet collector label
+    bullet_collector = new QGraphicsTextItem("Bullet Collector: " + QString::number(collector->size));
+    bullet_collector->setFont(font);
+    bullet_collector->setDefaultTextColor(Qt::red);
     //Bullets speed label
     bullets_speed_label = new QGraphicsTextItem("Bullets Speed: " + QString::number(bullets_speed));
     bullets_speed_label->setFont(font);
@@ -87,6 +90,7 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     scene->addItem(myPixmapItem);
     scene->addItem(myHeart);
     scene->addItem(bullets_label);
+    scene->addItem(bullet_collector);
     scene->addItem(bullets_speed_label);
     scene->addItem(health_label);
     scene->addItem(wave_label);
@@ -96,8 +100,9 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     myPixmapItem->setPos(0,0);
     myHeart->setPos(50,0);
     bullets_label->setPos(0,50);
-    bullets_speed_label->setPos(0,70);
-    health_label->setPos(0,90);
+    bullet_collector->setPos(0,70);
+    bullets_speed_label->setPos(0,90);
+    health_label->setPos(0,110);
     wave_label->setPos(700,20);
     fase_label->setPos(700,0);
 
@@ -106,6 +111,8 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     player->setFocus();
     player->setPos(0,150);
     player->set_enemies(ships_number);
+    player->setCollector(collector);
+    player->set_CollectorLabel(bullet_collector);
 
     //Spawn enemies at the beginning
     player->spawn_enemies(ships_number, scene);
@@ -262,18 +269,25 @@ void Normal_Game::check_health()
         QList<QGraphicsItem *> colliding_items = line->collidingItems();
         for (int i = 0, n = colliding_items.size(); i < n; ++i){
             if (typeid(*(colliding_items[i])) == typeid(Red_Enemy)){ //Checks if the red enemy is colliding with the line
+                Red_Enemy *red_ne =  qgraphicsitem_cast<Red_Enemy *>(colliding_items[i]);
+                //player->enemies_list->printList();
+                player->enemies_list->deleteNode(red_ne);
+                qDebug() << "se ha eliminado un enemigo rojo";
+                //qDebug() << "";
+                std::cout << "[ ";
                 player->enemies_list->printList();
-                //player->enemies_list->deleteNode(1);
-                qDebug() << "";
-                player->enemies_list->printList();
+                std::cout << " ]" << std::endl;
                 decrease_health();
             }
             else if (typeid(*(colliding_items[i])) == typeid(Blue_Enemy)){ //Checks if the blue enemy is colliding with the line
+                Blue_Enemy *blue_ne =  qgraphicsitem_cast<Blue_Enemy *>(colliding_items[i]);
+                //player->enemies_list->printList();
+                player->enemies_list->deleteNode(blue_ne);
+                qDebug() << "se ha eliminado un enemigo azul";
+                //qDebug() << "";
+                std::cout << "[ ";
                 player->enemies_list->printList();
-                qDebug() << typeid(*(colliding_items[i])).name();
-                //player->enemies_list->deleteNode(*(colliding_items[i]));
-                qDebug() << "";
-                player->enemies_list->printList();
+                std::cout << " ]" << std::endl;
                 decrease_health();
             }
         }
@@ -313,9 +327,6 @@ void Normal_Game::change_speed_bullets()
     bullets_speed_label->setPlainText("New Bullets Speed is: " + QString::number(bullets_speed));
 }
 
-Normal_Game::Normal_Game() {
-
-}
 
 int Normal_Game::get_enemy_speed() {
     return this->enemy_speed;

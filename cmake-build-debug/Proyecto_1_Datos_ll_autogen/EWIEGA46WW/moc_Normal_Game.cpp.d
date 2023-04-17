@@ -1,5 +1,6 @@
 /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/Proyecto_1_Datos_ll_autogen/EWIEGA46WW/moc_Normal_Game.cpp: /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Normal_Game.h \
   /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/cmake-build-debug/Proyecto_1_Datos_ll_autogen/moc_predefs.h \
+  /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Bullet_Collector.h \
   /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Linked_List.h \
   /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Player.h \
   /usr/include/asm-generic/errno-base.h \

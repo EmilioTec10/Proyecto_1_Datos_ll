@@ -12,9 +12,8 @@ public:
     Red_Enemy_Hard();
     int value_speed;
     int random_number = rand() % 550;
-    int red_life = 3;
     int token = 0;
-
+    float red_life = 3.00;
     void setEnemies_List(Linkedlist *enemies_list);
 
 public slots:

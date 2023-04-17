@@ -16,13 +16,13 @@ public:
     int token = 0;
     int value_speed_blue;
     void setEnemies_List(Linkedlist *enemies_list);
+    float blue_life = 0.5;
 
 public slots:
 
     void move();
 
 private:
-
     Linkedlist *enemies_list;
 };
 

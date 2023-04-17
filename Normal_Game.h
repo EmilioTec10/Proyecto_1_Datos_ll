@@ -6,6 +6,7 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include "Player.h"
+#include "Bullet_Collector.h"
 #include <QGuiApplication>
 #include <QPixmap>
 
@@ -32,9 +33,10 @@ public:
     QTimer *fase_timer;
     QTimer *setBullets;
     QTimer *check;
-
+    Collector *collector = new Collector();
     //Changable labels
     QGraphicsTextItem *bullets_label;
+    QGraphicsTextItem *bullet_collector;
     QGraphicsTextItem *bullets_speed_label;
     QGraphicsTextItem *health_label;
     QGraphicsTextItem *wave_label;
@@ -66,7 +68,7 @@ private:
     int bullets_speed;
     int bullets_number;
     int health_number;
-    int waves_info[5];
+    int waves_info[4];
     int enemy_speed;
     void Back_to_past(int &variable, int newValue, int delayInSeconds);
 

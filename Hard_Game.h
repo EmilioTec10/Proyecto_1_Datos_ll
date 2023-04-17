@@ -31,6 +31,7 @@ public:
 
     //Changable Labels
     QGraphicsTextItem *bullets_label;
+    QGraphicsTextItem *bullet_collector;
     QGraphicsTextItem *bullets_speed_label;
     QGraphicsTextItem *health_label;
     QGraphicsTextItem *wave_label;

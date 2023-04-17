@@ -39,10 +39,11 @@ void Red_Enemy::move()
         if (typeid(*(colliding_items[i])) == typeid(Bullet)){
 
             if (red_life == 0){
-                enemies_list->printList();
-                //qDebug() << "";
                 enemies_list->deleteNode(this);
+                // qDebug() << "se ha eliminado un enemigo rojo";
+                std::cout << "[ ";
                 enemies_list->printList();
+                std::cout << " ]" << std::endl;
                 // remove them both
                 scene()->removeItem(colliding_items[i]);
                 scene()->removeItem(this);
@@ -52,10 +53,20 @@ void Red_Enemy::move()
                 return;
             }
             else{
-                red_life--;
-                scene()->removeItem(colliding_items[i]);
-                delete colliding_items[i];
-                return;
+                Bullet *bu =  qgraphicsitem_cast<Bullet *>(colliding_items[i]);
+                if (bu->damaged){
+                    red_life = red_life - 0.5;
+                    // qDebug() << "red: " << red_life;
+                    scene()->removeItem(colliding_items[i]);
+                    delete colliding_items[i];
+                    return;
+                }
+                else{
+                    red_life--;
+                    scene()->removeItem(colliding_items[i]);
+                    delete colliding_items[i];
+                    return;
+                }
             }
         }
     }

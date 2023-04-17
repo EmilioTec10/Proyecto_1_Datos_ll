@@ -14,6 +14,7 @@ public:
     //Variables of the enemy
     int random_number = rand() % 550;
     int token = 0;
+    float blue_life = 0.5;
     int value_speed_blue;
     void setEnemies_List(Linkedlist *enemies_list);
 
