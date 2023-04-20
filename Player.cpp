@@ -7,9 +7,15 @@
 #include "Blue_Enemy_Hard.h"
 #include "Red_Enemy_Hard.h"
 #include <QTimer>
-#include <iostream>
 #include <QObject>
 #include <QDebug>
+#include "SerialComm.h"
+#include <iostream>
+#include <fstream>
+#include <unistd.h>
+#include <fcntl.h>
+#include <termios.h>
+
 
 Player::Player(int bullets_number)
 {
@@ -53,10 +59,6 @@ void Player::spawn_enemies(int enemies)
         scene()->addItem(blue_Enemy);
         blue_Enemy->setEnemies_List(enemies_list);
         enemies_list->insertNode(blue_Enemy, blue_Enemy->token);
-
-        qDebug() << blue_Enemy->token;
-        qDebug() << red_Enemy->token;
-
         blue_recursive++;
         red_recursive++;
     }
@@ -103,7 +105,7 @@ void Player::spawn_enemies(int enemies, QGraphicsScene *scene)
         blue_Enemy->setEnemies_List(enemies_list);
         enemies_list->insertNode(blue_Enemy, blue_Enemy->token);
         scene->addItem(blue_Enemy);
-        qDebug() << blue_Enemy->token;
+
 
         red++;
         blue++;
@@ -161,4 +163,27 @@ void Player::conect()
 void Player::connector()
 {
     spawn_hard_enemies(enemies);
+}
+void Player::startSerialConnection() {
+
+    const char *dispositivo_serial = "/dev/ttyUSB0"; // Cambiar según el dispositivo serial en uso
+    int fd = open(dispositivo_serial, O_RDWR | O_NOCTTY);
+
+    struct termios opciones;
+    tcgetattr(fd, &opciones);
+    opciones.c_cflag = B9600 | CS8 | CLOCAL | CREAD;
+    opciones.c_iflag = IGNPAR;
+    opciones.c_oflag = 0;
+    opciones.c_lflag = 0;
+    tcsetattr(fd, TCSANOW, &opciones);
+
+    char buffer[1];
+
+    ssize_t n = read(fd, buffer, sizeof(buffer));
+    std::string letra(buffer, n);
+    std::cout <<  letra << std::endl;
+    close(fd);
+    data= letra;
+
+
 }

@@ -9,7 +9,6 @@
 #include "Dificulties_Window.h"
 #include <QGraphicsProxyWidget>
 #include <QPushButton>
-#include <iostream>
 #include <string>
 
 void Raged_Powers_Window::easy(bool Speed, bool Freeze, bool Bullet, bool Slow)

@@ -5,11 +5,11 @@
 #include "Normal_Game.h"
 #include "XML_Reader.h"
 #include <QList>
-#include <iostream>
+
 
 Red_Enemy::Red_Enemy()
 {
-    std::cerr << value_speed << std::endl;
+
     setPos(800,random_number);
 
     setPixmap(QPixmap(":/Images/Red_Enemy"));
@@ -41,9 +41,7 @@ void Red_Enemy::move()
             if (red_life == 0){
                 enemies_list->deleteNode(this);
                 // qDebug() << "se ha eliminado un enemigo rojo";
-                std::cout << "[ ";
-                enemies_list->printList();
-                std::cout << " ]" << std::endl;
+
                 // remove them both
                 scene()->removeItem(colliding_items[i]);
                 scene()->removeItem(this);

@@ -152,6 +152,12 @@
 			null
 		],
 		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/SerialComm.h",
+			"MU",
+			"EWIEGA46WW/moc_SerialComm.cpp",
+			null
+		],
+		[
 			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Win_Window.h",
 			"MU",
 			"EWIEGA46WW/moc_Win_Window.cpp",
@@ -276,6 +282,11 @@
 		],
 		[
 			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Red_Enemy_Hard.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/SerialComm.cpp",
 			"MU",
 			null
 		],

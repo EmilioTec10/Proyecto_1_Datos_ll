@@ -6,7 +6,7 @@
 #include <QGraphicsScene>
 #include <stdlib.h>
 #include <QList>
-#include <iostream>
+
 
 Red_Enemy_Hard::Red_Enemy_Hard()
 {
@@ -40,10 +40,7 @@ void Red_Enemy_Hard::move()
 
                if (red_life == 0){
                    enemies_list->deleteNode(this);
-                   // qDebug() << "se ha eliminado un enemigo rojo";
-                   std::cout << "[ ";
-                   enemies_list->printList();
-                   std::cout << " ]" << std::endl;
+
                    // remove them both
                    scene()->removeItem(colliding_items[i]);
                    scene()->removeItem(this);
@@ -56,7 +53,7 @@ void Red_Enemy_Hard::move()
                    Bullet *bu =  qgraphicsitem_cast<Bullet *>(colliding_items[i]);
                    if (bu->damaged){
                        red_life = red_life - 0.5;
-                       // qDebug() << "red: " << red_life;
+
                        scene()->removeItem(colliding_items[i]);
                        delete colliding_items[i];
                        return;

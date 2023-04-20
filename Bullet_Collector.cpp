@@ -2,7 +2,7 @@
 #include "Bullet.h"
 #include <QGraphicsScene>
 #include <QDebug>
-#include <iostream>
+
 
 
 Bullet_Node::Bullet_Node(Bullet *bullet)
@@ -41,12 +41,11 @@ void Collector::printList()
     Bullet_Node* temp = head;
 
     if (head == nullptr) {
-        qDebug() << "List empty";
         return;
     }
 
     while (temp != nullptr) {
-        std::cout << temp->bullet << std::endl;
+
         temp = temp->next;
     }
 }

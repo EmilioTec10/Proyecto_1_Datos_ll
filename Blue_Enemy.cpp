@@ -6,9 +6,8 @@
 #include <QList>
 #include "Linked_List.h"
 #include "XML_Reader.h"
-#include <QDebug>
 #include <QGuiApplication>
-#include <iostream>
+
 
 Blue_Enemy::Blue_Enemy()
 {
@@ -40,9 +39,7 @@ void Blue_Enemy::move()
             if (blue_life <= 0){
                 //List of enemies
                 enemies_list->deleteNode(this);
-                std::cout << "[ ";
-                enemies_list->printList();
-                std::cout << " ]" << std::endl;
+
 
                 // remove them both
                 scene()->removeItem(colliding_items[i]);
@@ -57,7 +54,6 @@ void Blue_Enemy::move()
                 Bullet *bu =  qgraphicsitem_cast<Bullet *>(colliding_items[i]);
                 if (bu->damaged){
                     blue_life = blue_life - 0.5;
-                    qDebug() << "blue: " << blue_life;
                     scene()->removeItem(colliding_items[i]);
                     delete colliding_items[i];
                     return;
@@ -66,10 +62,6 @@ void Blue_Enemy::move()
                     scene()->removeItem(colliding_items[i]);
                     scene()->removeItem(this);
                     enemies_list->deleteNode(this);
-                    qDebug() << "se ha eliminado un enemigo azul";
-                    std::cout << "[ ";
-                    enemies_list->printList();
-                    std::cout << " ]" << std::endl;
                     delete colliding_items[i];
                     delete this;
                     return;

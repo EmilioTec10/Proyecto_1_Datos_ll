@@ -3,7 +3,7 @@
 #include "Red_Enemy.h"
 #include "Red_Enemy_Hard.h"
 #include "Blue_Enemy_Hard.h"
-#include <QDebug>
+
 
 
 Node::Node(Red_Enemy *red_enemy)
@@ -107,29 +107,26 @@ void Linkedlist::printList()
     Node* temp = head;
 
     if (head == nullptr) {
-        qDebug() << "List empty";
         return;
     }
 
     while (temp != nullptr) {
         if (temp->blue_enemy != nullptr){
-
-            qDebug() << "(800, " << temp->blue_enemy->random_number << ")" << " , ";
             temp = temp->next;
         }
         else if (temp->blue_hard_enemy != nullptr){
 
-            qDebug() << "(800, "<< temp->blue_hard_enemy->random_number << ")" << " , ";
+
             temp = temp->next;
         }
         else if (temp->red_enemy != nullptr){
 
-            qDebug() << "(800, " << temp->red_enemy->random_number << ")" << " , ";
+
             temp = temp->next;
         }
         else if (temp->red_hard_enemy != nullptr){
 
-            qDebug() << "(800, " << temp->red_hard_enemy->random_number << ")" << " , ";
+
             temp = temp->next;
         }
     }

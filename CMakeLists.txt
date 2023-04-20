@@ -50,7 +50,7 @@ set(PROJECT_SOURCES
         XML_Reader.h
         XML_Reader.cpp
         Raged_Powers_Window.h
-        Raged_Powers_Window.cpp)
+        Raged_Powers_Window.cpp SerialComm.cpp SerialComm.h)
 
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

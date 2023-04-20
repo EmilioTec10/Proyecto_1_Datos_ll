@@ -22,7 +22,6 @@ public:
     void Chooser2();
     void Chooser3();
     void Chooser4();
-
     QGraphicsScene * scene;
 private:
     int width = 800;

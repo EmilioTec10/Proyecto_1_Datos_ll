@@ -14,7 +14,7 @@
 #include <QList>
 #include <QtWidgets>
 #include <functional>
-#include <iostream>
+
 
 
 Hard_Game::Hard_Game(int bullet_speed,int bullets, int ships_number, int health,bool Speed, bool Freeze, bool Bullet, bool Slow, QWidget * parent){
@@ -177,8 +177,7 @@ void Hard_Game::keyPressEvent(QKeyEvent *event)
     }
     else if (event->key() == Qt::Key_P && Raged_Powers_Bullet_Speed ==true) {
         xml_reader.XML_Data_Finder("/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Raged_Powers_XML.xml");
-        std::cerr << "ahora veamos el vector" << std::endl;
-        std::cerr << xml_reader.newest_data << std::endl;
+
         bullets_speed = xml_reader.newest_data;
         timer_bullets->setInterval(bullets_speed + 10);
         change_speed_bullets();

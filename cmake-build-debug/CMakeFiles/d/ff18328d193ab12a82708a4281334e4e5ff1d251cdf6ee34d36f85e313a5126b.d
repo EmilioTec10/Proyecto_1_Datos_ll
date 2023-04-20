@@ -27,6 +27,8 @@ Proyecto_1_Datos_ll_autogen/timestamp: \
   /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Red_Enemy_Hard.cpp \
   /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Red_Enemy_Hard.h \
   /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Resources.qrc \
+  /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/SerialComm.cpp \
+  /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/SerialComm.h \
   /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Win_Window.cpp \
   /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Win_Window.h \
   /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/XML_Reader.cpp \

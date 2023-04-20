@@ -7,15 +7,18 @@
 #include <QTimer>
 #include "Player.h"
 #include "Bullet_Collector.h"
+#include "SerialComm.h"
 #include <QGuiApplication>
 #include <QPixmap>
 
 
 class Normal_Game: public QGraphicsView{
-    Q_OBJECT
+Q_OBJECT
 
 
 public:
+    QObject *serialComm;
+
     Normal_Game(int bullet_speed,int bullets, int ships_number, int health,bool Speed, bool Freeze, bool Bullet, bool Slow, QWidget * parent=0);
     Normal_Game();
     void keyPressEvent(QKeyEvent *event);
@@ -23,6 +26,8 @@ public:
     bool Raged_Powers_Bullet_Amount;
     bool Raged_Powers_Enemy_Speed;
     bool Raged_Powers_Enemy_Freeze;
+    void Serial_ON();
+
     void change_speed_bullets();
     int get_enemy_speed();
     //Timers of the game
@@ -31,8 +36,11 @@ public:
     QTimer *timer_enemies;
     QTimer *wave_timer;
     QTimer *fase_timer;
+    QTimer *timer;
     QTimer *setBullets;
     QTimer *check;
+    QTimer *check2;
+    QTimer *check3;
     Collector *collector = new Collector();
     //Changable labels
     QGraphicsTextItem *bullets_label;
@@ -42,10 +50,14 @@ public:
     QGraphicsTextItem *wave_label;
     QGraphicsTextItem *fase_label;
     QGraphicsLineItem *line;
+    bool serial;
+    SerialComm *pichadeconexion = new SerialComm();
 
     //Items
     QGraphicsScene * scene;
     Player * player;
+
+
 
 public slots:
 
@@ -57,6 +69,9 @@ public slots:
     void increase_fase();
     void Back_to_past();
     void Back_to_past_2();
+    void Aduino_Movement();
+    void Wait();
+
 
 private:
 

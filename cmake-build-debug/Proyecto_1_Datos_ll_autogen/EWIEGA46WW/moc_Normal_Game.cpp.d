@@ -3,6 +3,7 @@
   /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Bullet_Collector.h \
   /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Linked_List.h \
   /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Player.h \
+  /home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/SerialComm.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \

@@ -7,3 +7,4 @@
 #include "EWIEGA46WW/moc_Player.cpp"
 #include "EWIEGA46WW/moc_Red_Enemy.cpp"
 #include "EWIEGA46WW/moc_Red_Enemy_Hard.cpp"
+#include "EWIEGA46WW/moc_SerialComm.cpp"

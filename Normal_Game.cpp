@@ -16,10 +16,11 @@
 #include <QPixmap>
 #include <QtWidgets>
 #include <functional>
-#include <iostream>
 #include <unistd.h>
 #include <mutex>
 #include <condition_variable>
+#include <iostream>
+#include "SerialComm.h"
 
 XML_Reader xml_reader;
 
@@ -153,6 +154,13 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     QObject::connect(check,SIGNAL(timeout()),this,SLOT(check_health()));
     check->start(50);
 
+    check2 = new QTimer;
+    QObject::connect(check2,SIGNAL(timeout()),player,SLOT(startSerialConnection()));
+    check2->start(200);
+    check3 = new QTimer;
+    QObject::connect(check3,SIGNAL(timeout()),this,SLOT(Aduino_Movement()));
+    check3->start(210);
+    Aduino_Movement();
     show();
 }
 
@@ -160,11 +168,13 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
 std::mutex mutex;
 std::condition_variable cv;
 void Normal_Game::keyPressEvent(QKeyEvent *event) {
-
     Red_Enemy red_enemy;
     if (event->key() == Qt::Key_Up) {
+
         if (player->y() > 0) {
+
             player->setPos(player->x(), player->y() - 10);
+
         }
     } else if (event->key() == Qt::Key_Down) {
         if (player->y() < 500) {
@@ -189,15 +199,9 @@ void Normal_Game::keyPressEvent(QKeyEvent *event) {
             return;
         }
     } else if (event->key() == Qt::Key_P && Raged_Powers_Bullet_Speed ==true) {
-        xml_reader.XML_Data_Finder("/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Raged_Powers_XML.xml");
-        std::cerr << "ahora veamos el vector" << std::endl;
-        std::cerr << xml_reader.newest_data << std::endl;
-        bullets_speed = xml_reader.newest_data;
-        timer_bullets->setInterval(bullets_speed + 10);
-        change_speed_bullets();
-        timer_decrease_bullets->setInterval(bullets_speed);
+
         QTimer *timer = new QTimer;
-        connect(timer,SIGNAL(timeout()),this,SLOT(Back_to_past())); //conect method that repeats the method everytime it recives the signal
+        connect(timer,SIGNAL(timeout()),this,SLOT(Wait())); //conect method that repeats the method everytime it recives the signal
         timer->start(5000); //Signal every 50 miliseconds
 
     }
@@ -223,6 +227,38 @@ void Normal_Game::keyPressEvent(QKeyEvent *event) {
         connect(timer, SIGNAL(timeout()), this,SLOT(Back_to_past_2())); //conect method that repeats the method everytime it recives the signal
         timer->start(8000); //Signal every 50 miliseconds
     }
+}
+void Normal_Game::Wait(){
+    xml_reader.XML_Data_Finder("/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Raged_Powers_XML.xml");
+    bullets_speed = xml_reader.newest_data;
+    timer_bullets->setInterval(bullets_speed + 10);
+    change_speed_bullets();
+    timer_decrease_bullets->setInterval(bullets_speed);
+    QTimer *timer = new QTimer;
+    connect(timer,SIGNAL(timeout()),this,SLOT(Back_to_past())); //conect method that repeats the method everytime it recives the signal
+    timer->start(5000); //Signal every 50 miliseconds
+
+}
+
+void Normal_Game::Aduino_Movement(){
+    if (player->data == "U"){
+        if (player->y() > 0) {
+
+            player->setPos(player->x(), player->y() - 30);
+
+        }
+    }
+    if (player->data == "L"){
+        if (player->y() < 500) {
+            player->setPos(player->x(), player->y() + 30);
+        }
+    }
+    if (player->data=="F"){
+
+        std::cout<<"nothing to do";
+    }
+
+
 }
 void Normal_Game::decrease_bullets()
 {
@@ -272,26 +308,17 @@ void Normal_Game::check_health()
                 Red_Enemy *red_ne =  qgraphicsitem_cast<Red_Enemy *>(colliding_items[i]);
                 //player->enemies_list->printList();
                 player->enemies_list->deleteNode(red_ne);
-                qDebug() << "se ha eliminado un enemigo rojo";
-                //qDebug() << "";
-                std::cout << "[ ";
-                player->enemies_list->printList();
-                std::cout << " ]" << std::endl;
                 decrease_health();
             }
             else if (typeid(*(colliding_items[i])) == typeid(Blue_Enemy)){ //Checks if the blue enemy is colliding with the line
                 Blue_Enemy *blue_ne =  qgraphicsitem_cast<Blue_Enemy *>(colliding_items[i]);
-                //player->enemies_list->printList();
+
                 player->enemies_list->deleteNode(blue_ne);
-                qDebug() << "se ha eliminado un enemigo azul";
-                //qDebug() << "";
-                std::cout << "[ ";
-                player->enemies_list->printList();
-                std::cout << " ]" << std::endl;
                 decrease_health();
             }
         }
     }
+
 }
 
 void Normal_Game::increase_wave()
