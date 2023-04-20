@@ -17,6 +17,9 @@ public:
     int token = 0;
 
     void setEnemies_List(Linkedlist *enemies_list);
+    void setWave_Info(QGraphicsPixmapItem* waves_info[4]);
+    void removeEnemy();
+    void print_Wave_info();
 
 public slots:
 
@@ -24,6 +27,8 @@ public slots:
 
 private:
 
+    int waves_info_size = 4;
+    QGraphicsPixmapItem* waves_info[4];
     Linkedlist *enemies_list;
 };
 

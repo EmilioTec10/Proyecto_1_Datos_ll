@@ -60,7 +60,6 @@ private:
     int bullets_speed;
     int bullets_number;
     int health_number;
-    int waves_info[4];
 };
 
 #endif // NORMAL_GAME_H

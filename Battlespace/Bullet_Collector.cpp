@@ -4,7 +4,10 @@
 #include <QDebug>
 #include <iostream>
 
-
+/**
+ * @brief Bullet_Node::Bullet_Node Crea el nodo que almacena la bala y la convierte en una bala dañada
+ * @param bullet Bala que se almacena en el nodo
+ */
 Bullet_Node::Bullet_Node(Bullet *bullet)
 {
     this->bullet = bullet;
@@ -12,11 +15,18 @@ Bullet_Node::Bullet_Node(Bullet *bullet)
     this->next = nullptr;
 }
 
+/**
+ * @brief Collector::Collector Crea el collector collocando la cabeza como nula
+ */
 Collector::Collector()
 {
     head = nullptr;
 }
 
+/**
+ * @brief Collector::insertNode Funcion que inserta un nuevo nodo en el bullet collector
+ * @param bullet Bala que se inserta en el nodo
+ */
 void Collector::insertNode(Bullet *bullet)
 {
     increment_size();
@@ -36,6 +46,9 @@ void Collector::insertNode(Bullet *bullet)
     temp->next = newNode;
 }
 
+/**
+ * @brief Collector::printList Funcion que imprime el bullet collector
+ */
 void Collector::printList()
 {
     Bullet_Node* temp = head;
@@ -51,6 +64,9 @@ void Collector::printList()
     }
 }
 
+/**
+ * @brief Collector::deleteHead Funcion que borra la cabeza del nodo
+ */
 void Collector::deleteHead()
 {
     if (head){
@@ -60,16 +76,28 @@ void Collector::deleteHead()
     }
 }
 
+/**
+ * @brief Collector::increment_size funcion que incrementa el tamaño del bullet collector
+ */
 void Collector::increment_size()
 {
     size++;
 }
 
+/**
+ * @brief Collector::increment_size funcion que disminuye el tamaño del bullet collector
+ */
 void Collector::decrement_size()
 {
     size--;
 }
 
+/**
+ * @brief Collector::useBullet Funcion que usa la bala que esta a la cabeza del buller collector
+ * @param scene Escena necesaria para poner la bala
+ * @param x Poscion de la nave en el eje x
+ * @param y Poscion de la nave en el eje y
+ */
 void Collector::useBullet(QGraphicsScene *scene, int x, int y)
 {
     if (head == nullptr){

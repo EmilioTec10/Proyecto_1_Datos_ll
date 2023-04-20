@@ -6,6 +6,9 @@
 #include <QGraphicsProxyWidget>
 #include <QRectF>
 
+/**
+ * @brief Dificulties::easy Funcion que incia el juego en dificultad facil
+ */
 void Dificulties::easy()
 {
     Normal_Game * easy = new  Normal_Game(800, 200, 1, 8);
@@ -13,6 +16,10 @@ void Dificulties::easy()
     this->close();
 }
 
+
+/**
+ * @brief Dificulties::easy Funcion que incia el juego en dificultad normal
+ */
 void Dificulties::normal()
 {
     Normal_Game * normal = new Normal_Game(1000, 150, 2, 5);
@@ -20,6 +27,10 @@ void Dificulties::normal()
     this->close();
 }
 
+
+/**
+ * @brief Dificulties::easy Funcion que incia el juego en dificultad dificil
+ */
 void Dificulties::hard()
 {
     Hard_Game * hard = new Hard_Game(1000, 120, 2, 3);
@@ -27,7 +38,10 @@ void Dificulties::hard()
     this->close();
 }
 
-
+/**
+ * @brief Dificulties::Dificulties Constructor de la clase de la ventana de las dificultadoes
+ * @param parent WIdget que hace posible que se incie la ventana
+ */
 Dificulties::Dificulties(QWidget *parent)
 {
     //Creation of the scene

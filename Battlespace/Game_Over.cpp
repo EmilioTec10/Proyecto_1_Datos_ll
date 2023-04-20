@@ -4,6 +4,10 @@
 #include <QGraphicsProxyWidget>
 #include <QPushButton>
 
+/**
+ * @brief Game_Over::Game_Over Constructor de la ventana de perdiste
+ * @param parent Widget que hace posible que la ventana se corra
+ */
 Game_Over::Game_Over(QWidget *parent)
 {
     //Creation of the scene
@@ -36,6 +40,10 @@ Game_Over::Game_Over(QWidget *parent)
     show();
 }
 
+/**
+ * @brief Game_Over::main_menu Funcion que al apretar el boton te devuelve a la ventana de dificultades
+ *
+ */
 void Game_Over::main_menu()
 {
     Dificulties *window = new Dificulties();

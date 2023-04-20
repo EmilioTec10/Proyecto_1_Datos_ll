@@ -16,6 +16,14 @@
 #include <iostream>
 #include <functional>
 
+/**
+ * @brief Normal_Game::Normal_Game Constructor que genera la ventana del juego normal y facil
+ * @param bullet_speed Velocidad de las balas
+ * @param bullets Cantidad de balas
+ * @param ships_number Cantidad de naves enemigas
+ * @param health Cantidad de vida
+ * @param parent Widget que hace posible usar qobjects en la escena
+ */
 Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int health, QWidget *parent){
 
     //Creation and configuration of the scene
@@ -150,6 +158,10 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     show();
 }
 
+/**
+ * @brief Normal_Game::keyPressEvent Metodo que recibe los eventos del teclado y ejecuta funciones
+ * @param event Evento del teclado recibido
+ */
 void Normal_Game::keyPressEvent(QKeyEvent *event)
 {
 
@@ -186,6 +198,10 @@ void Normal_Game::keyPressEvent(QKeyEvent *event)
         }
     }
 }
+
+/**
+ * @brief Normal_Game::decrease_bullets Metodo que disminuye el contador de balas
+ */
 void Normal_Game::decrease_bullets()
 {
     if (bullets_number == 0){
@@ -197,6 +213,9 @@ void Normal_Game::decrease_bullets()
     }
 }
 
+/**
+ * @brief Normal_Game::decrease_health Metodo que disminuye la vida del jugador
+ */
 void Normal_Game::decrease_health()
 {
     if (health_number == 0){
@@ -208,6 +227,9 @@ void Normal_Game::decrease_health()
     }
 }
 
+/**
+ * @brief Hard_Game::check_health Revisa si los enemigos llegaron al final para quitar una vida y en caso de llegar a 0 se abre la ventana de perdiste
+ */
 void Normal_Game::check_health()
 {
     if (health_number == 0){
@@ -223,6 +245,8 @@ void Normal_Game::check_health()
                 Red_Enemy *red_ne =  qgraphicsitem_cast<Red_Enemy *>(colliding_items[i]);
                 //player->enemies_list->printList();
                 player->enemies_list->deleteNode(red_ne);
+                player->removeEnemy();
+                player->print_Wave_info();
                 qDebug() << "se ha eliminado un enemigo rojo";
                 //qDebug() << "";
                 std::cout << "[ ";
@@ -234,6 +258,8 @@ void Normal_Game::check_health()
                 Blue_Enemy *blue_ne =  qgraphicsitem_cast<Blue_Enemy *>(colliding_items[i]);
                 //player->enemies_list->printList();
                 player->enemies_list->deleteNode(blue_ne);
+                player->removeEnemy();
+                player->print_Wave_info();
                 qDebug() << "se ha eliminado un enemigo azul";
                 //qDebug() << "";
                 std::cout << "[ ";
@@ -245,6 +271,9 @@ void Normal_Game::check_health()
     }
 }
 
+/**
+ * @brief Hard_Game::increase_wave Aumenta la oleada del juego
+ */
 void Normal_Game::increase_wave()
 {
     if (wave_number == 5){
@@ -257,6 +286,9 @@ void Normal_Game::increase_wave()
     }
 }
 
+/**
+ * @brief Hard_Game::increase_fase Aumenta la fase y revisa se gano el juego
+ */
 void Normal_Game::increase_fase()
 {
     if (fase_number == 5){
@@ -273,6 +305,9 @@ void Normal_Game::increase_fase()
     }
 }
 
+/**
+ * @brief Hard_Game::change_speed_bullets Cambia la velocidad de las balas en el label
+ */
 void Normal_Game::change_speed_bullets()
 {
     bullets_speed_label->setPlainText("Bullets Speed: " + QString::number(bullets_speed));

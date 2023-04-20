@@ -15,7 +15,11 @@ public:
     float red_life = 2.00;
     int token = 0;
 
+    void removeEnemy();
+    void print_Wave_info();
+
     void setEnemies_List(Linkedlist *enemies_list);
+    void setWave_Info(QGraphicsPixmapItem* waves_info[4]);
 
 public slots:
 
@@ -23,6 +27,8 @@ public slots:
 
 private:
 
+    int waves_info_size = 4;
+    QGraphicsPixmapItem* waves_info[4];
     Linkedlist *enemies_list;
 };
 

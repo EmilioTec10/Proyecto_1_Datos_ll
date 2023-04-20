@@ -21,6 +21,8 @@ public:
     void set_enemies(int enemies);
     void setCollector(Collector *collector);
     void set_CollectorLabel(QGraphicsTextItem *bullet_collector);
+    void removeEnemy();
+    void print_Wave_info();
 
     Linkedlist *enemies_list = new Linkedlist();
 
@@ -34,7 +36,10 @@ public slots:
 
 private:
     int enemies;
+    int waves_info_size = 4;
     QGraphicsTextItem *bullet_collector;
     Collector *collector;
+    QGraphicsPixmapItem* waves_info[4];
+    QGraphicsPixmapItem* waves_info_hard[3];
 };
 #endif // PLAYER_H

@@ -15,6 +15,14 @@
 #include <functional>
 #include <iostream>
 
+/**
+ * @brief Hard_Game::Hard_Game Constructor que inicia la ventana del juego dificil
+ * @param bullet_speed Velocidad de las balas al inico del juego
+ * @param bullets Cantidad de balas al inicio del juego
+ * @param ships_number Cantidad de naves enemigas al inicio del juego
+ * @param health Cantidad de vidas al inicio del juego
+ * @param parent Widget que hace que la ventana pueda tener objetos
+ */
 Hard_Game::Hard_Game(int bullet_speed,int bullets, int ships_number, int health, QWidget * parent){
 
     //Creation and configuration of the scene
@@ -132,6 +140,10 @@ Hard_Game::Hard_Game(int bullet_speed,int bullets, int ships_number, int health,
     show();
 }
 
+/**
+ * @brief Hard_Game::keyPressEvent Funcion que recibe los eventos de el teclado y aplica funciones
+ * @param event event recibido por el teclado
+ */
 void Hard_Game::keyPressEvent(QKeyEvent *event)
 {
 
@@ -180,6 +192,10 @@ void Hard_Game::keyPressEvent(QKeyEvent *event)
         }
     }
 }
+
+/**
+ * @brief Hard_Game::decrease_bullets Disminuye el contador de balas del label en la ventana
+ */
 void Hard_Game::decrease_bullets()
 {
     if (bullets_number == 0){
@@ -191,6 +207,9 @@ void Hard_Game::decrease_bullets()
     }
 }
 
+/**
+ * @brief Hard_Game::decrease_health Disminuye la vida del jugador
+ */
 void Hard_Game::decrease_health()
 {
     if (health_number == 0){
@@ -202,6 +221,9 @@ void Hard_Game::decrease_health()
     }
 }
 
+/**
+ * @brief Hard_Game::check_health Revisa si los enemigos llegaron al final para quitar una vida y en caso de llegar a 0 se abre la ventana de perdiste
+ */
 void Hard_Game::check_health()
 {
     if (health_number == 0){
@@ -239,6 +261,9 @@ void Hard_Game::check_health()
     }
 }
 
+/**
+ * @brief Hard_Game::increase_wave Aumenta la oleada del juego
+ */
 void Hard_Game::increase_wave()
 {
     if (wave_number == 5){
@@ -251,6 +276,9 @@ void Hard_Game::increase_wave()
     }
 }
 
+/**
+ * @brief Hard_Game::increase_fase Aumenta la fase y revisa se gano el juego
+ */
 void Hard_Game::increase_fase()
 {
     if (fase_number == 3){
@@ -267,6 +295,9 @@ void Hard_Game::increase_fase()
     }
 }
 
+/**
+ * @brief Hard_Game::change_speed_bullets Cambia la velocidad de las balas en el label
+ */
 void Hard_Game::change_speed_bullets()
 {
     bullets_speed_label->setPlainText("Bullets Speed: " + QString::number(bullets_speed));

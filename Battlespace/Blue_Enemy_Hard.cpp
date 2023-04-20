@@ -7,6 +7,9 @@
 #include <iostream>
 #include <QDebug>
 
+/**
+ * @brief Blue_Enemy_Hard::Blue_Enemy_Hard Crea el enemigo azul en el juego dificil
+ */
 Blue_Enemy_Hard::Blue_Enemy_Hard()
 {
     //Setups
@@ -19,11 +22,18 @@ Blue_Enemy_Hard::Blue_Enemy_Hard()
     timer->start(50); //Signal every 50 miliseconds
 }
 
+/**
+ * @brief Blue_Enemy_Hard::setEnemies_List Define la lista de los enemigos en esta clase
+ * @param enemies_list Lista de los enemigos de la otra clase
+ */
 void Blue_Enemy_Hard::setEnemies_List(Linkedlist *enemies_list)
 {
     this->enemies_list = enemies_list;
 }
 
+/**
+ * @brief Blue_Enemy_Hard::move Funcion del movimiento del enemigo azul en la dificultad de dificil
+ */
 void Blue_Enemy_Hard::move()
 {
     //Colison od the blue enemy with the bullet
