@@ -20,10 +20,18 @@
 #include <mutex>
 #include <condition_variable>
 #include <iostream>
+#include <unistd.h>
 #include "SerialComm.h"
 
 XML_Reader xml_reader;
-
+/**
+ * @brief Normal_Game::Normal_Game Constructor que genera la ventana del juego normal y facil
+ * @param bullet_speed Velocidad de las balas
+ * @param bullets Cantidad de balas
+ * @param ships_number Cantidad de naves enemigas
+ * @param health Cantidad de vida
+ * @param parent Widget que hace posible usar qobjects en la escena
+ */
 Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int health, bool Speed, bool Freeze, bool Bullet, bool Slow, QWidget *parent){
     Red_Enemy red_enemy;
 
@@ -157,16 +165,31 @@ Normal_Game::Normal_Game(int bullet_speed, int bullets, int ships_number, int he
     check2 = new QTimer;
     QObject::connect(check2,SIGNAL(timeout()),player,SLOT(startSerialConnection()));
     check2->start(200);
+
     check3 = new QTimer;
     QObject::connect(check3,SIGNAL(timeout()),this,SLOT(Aduino_Movement()));
     check3->start(210);
     Aduino_Movement();
+
+    check4 = new QTimer;
+    QObject::connect(check4, SIGNAL(timeout()), this, SLOT(potenciometer()));
+    check4->start(1000);
+
+    wave_arduino_timer = new QTimer;
+    QObject::connect(wave_arduino_timer,SIGNAL(timeout()),this, SLOT(enviar_Dato()));
+    wave_arduino_timer->start(10010);
+    enviar_Dato();
+
     show();
 }
 
 
 std::mutex mutex;
 std::condition_variable cv;
+/**
+ * @brief Normal_Game::keyPressEvent Metodo que recibe los eventos del teclado y ejecuta funciones
+ * @param event Evento del teclado recibido
+ */
 void Normal_Game::keyPressEvent(QKeyEvent *event) {
     Red_Enemy red_enemy;
     if (event->key() == Qt::Key_Up) {
@@ -227,7 +250,13 @@ void Normal_Game::keyPressEvent(QKeyEvent *event) {
         connect(timer, SIGNAL(timeout()), this,SLOT(Back_to_past_2())); //conect method that repeats the method everytime it recives the signal
         timer->start(8000); //Signal every 50 miliseconds
     }
+    else{
+        return;
+    }
 }
+/**
+ * @brief
+ */
 void Normal_Game::Wait(){
     xml_reader.XML_Data_Finder("/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Raged_Powers_XML.xml");
     bullets_speed = xml_reader.newest_data;
@@ -239,27 +268,88 @@ void Normal_Game::Wait(){
     timer->start(5000); //Signal every 50 miliseconds
 
 }
+int nose = 1;
+void Normal_Game::enviar_Dato(){
+
+    // Convertir el número entero a una cadena de caracteres
+    char c = '2'; // Carácter a enviar
+    ssize_t bytes_written = write(player->fd, &c, 1);
+    write(player->fd, &c, 1);
+}
+
+void Normal_Game::potenciometer(){
+    if (player->data21 == 'X'){
+        bullets_speed = 200;
+
+        timer_bullets->setInterval(bullets_speed);
+        timer_decrease_bullets->setInterval(bullets_speed);
+    }
+    if (player->data21 == 'C'){
+        bullets_speed =    300;
+        timer_bullets->setInterval(bullets_speed);
+        timer_decrease_bullets->setInterval(bullets_speed);
+    }
+    if (player->data21 == 'V'){
+        bullets_speed =    400;
+        timer_bullets->setInterval(bullets_speed);
+        timer_decrease_bullets->setInterval(bullets_speed);
+    }
+    if (player->data21 == 'B'){
+        bullets_speed =    500;
+        timer_bullets->setInterval(bullets_speed);
+        timer_decrease_bullets->setInterval(bullets_speed);
+    }
+    if (player->data21 == 'N'){
+        bullets_speed +=    600;
+        timer_bullets->setInterval(bullets_speed);
+        timer_decrease_bullets->setInterval(bullets_speed);
+    }
+    if (player->data21 == 'M'){
+        bullets_speed +=    700;
+        timer_bullets->setInterval(bullets_speed);
+        timer_decrease_bullets->setInterval(bullets_speed);
+    }if (player->data21 == 'A'){
+        bullets_speed +=    800;
+
+        timer_bullets->setInterval(bullets_speed);
+        timer_decrease_bullets->setInterval(bullets_speed);
+    }
+    if (player->data21 == 'S'){
+        bullets_speed =    900;
+
+        timer_bullets->setInterval(bullets_speed);
+        timer_decrease_bullets->setInterval(bullets_speed);
+    }
+    if (player->data21 == 'D'){
+        bullets_speed =    1000;
+        timer_bullets->setInterval(bullets_speed);
+        timer_decrease_bullets->setInterval(bullets_speed);
+    }
+}
 
 void Normal_Game::Aduino_Movement(){
-    if (player->data == "U"){
+    if (player->data12 == 'U'){
         if (player->y() > 0) {
 
             player->setPos(player->x(), player->y() - 30);
 
         }
     }
-    if (player->data == "L"){
+    if (player->data12 == 'L'){
         if (player->y() < 500) {
             player->setPos(player->x(), player->y() + 30);
         }
     }
-    if (player->data=="F"){
+    if (player->data12 == 'F'){
 
-        std::cout<<"nothing to do";
+        //std::cout<<"nothing to do";
     }
 
 
 }
+/**
+ * @brief Normal_Game::decrease_bullets Metodo que disminuye el contador de balas
+ */
 void Normal_Game::decrease_bullets()
 {
     if (bullets_number == 0){
@@ -281,7 +371,9 @@ void Normal_Game::Back_to_past_2(){
     xml_reader.Data_Changer("/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Raged_Powers_XML2.xml", "5");
     xml_reader.Data_Changer("/home/emmanuel/CLionProjects/Proyecto_1_Datos_ll/Battlespace/Raged_Powers_XML3.xml", "10");
 }
-
+/**
+ * @brief Normal_Game::decrease_health Metodo que disminuye la vida del jugador
+ */
 void Normal_Game::decrease_health()
 {
     if (health_number == 0){
@@ -292,7 +384,9 @@ void Normal_Game::decrease_health()
         health_label->setPlainText("Health: " + QString::number(health_number));
     }
 }
-
+/**
+ * @brief Hard_Game::check_health Revisa si los enemigos llegaron al final para quitar una vida y en caso de llegar a 0 se abre la ventana de perdiste
+ */
 void Normal_Game::check_health()
 {
     if (health_number == 0){
@@ -320,7 +414,9 @@ void Normal_Game::check_health()
     }
 
 }
-
+/**
+ * @brief Hard_Game::increase_wave Aumenta la oleada del juego
+ */
 void Normal_Game::increase_wave()
 {
     if (wave_number == 5){
@@ -333,6 +429,9 @@ void Normal_Game::increase_wave()
     }
 }
 
+/**
+ * @brief Hard_Game::increase_fase Aumenta la fase y revisa se gano el juego
+ */
 void Normal_Game::increase_fase()
 {
     if (fase_number == 3){
@@ -348,12 +447,13 @@ void Normal_Game::increase_fase()
         fase_label->setPlainText("Fase: " + QString::number(fase_number));
     }
 }
-
+/**
+ * @brief Hard_Game::change_speed_bullets Cambia la velocidad de las balas en el label
+ */
 void Normal_Game::change_speed_bullets()
 {
     bullets_speed_label->setPlainText("New Bullets Speed is: " + QString::number(bullets_speed));
 }
-
 
 int Normal_Game::get_enemy_speed() {
     return this->enemy_speed;

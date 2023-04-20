@@ -7,9 +7,11 @@
 #include <QList>
 
 
+/**
+ * @brief Red_Enemy::Red_Enemy Constructor que genera un enemigo rojo
+ */
 Red_Enemy::Red_Enemy()
 {
-
     setPos(800,random_number);
 
     setPixmap(QPixmap(":/Images/Red_Enemy"));
@@ -21,13 +23,18 @@ Red_Enemy::Red_Enemy()
     timer->start(50);
 }
 
+/**
+ * @brief Red_Enemy::setEnemies_List Define la lista enlazada de las coordenadas
+ * @param enemies_list Lista enlazada de la otra clase
+ */
 void Red_Enemy::setEnemies_List(Linkedlist *enemies_list)
 {
     this->enemies_list = enemies_list;
 }
 
-
-
+/**
+ * @brief Red_Enemy::move Metodo que hace que el enemigo rojo se mueva pasivamente y ademas detecta las colisiones con las balas
+ */
 void Red_Enemy::move()
 {
     XML_Reader xml_reader;

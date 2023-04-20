@@ -8,6 +8,9 @@
 #include <QList>
 
 
+/**
+ * @brief Red_Enemy::Red_Enemy Constructor que genera un enemigo rojo del modo dificil
+ */
 Red_Enemy_Hard::Red_Enemy_Hard()
 {
     setPos(800,random_number);
@@ -23,11 +26,18 @@ Red_Enemy_Hard::Red_Enemy_Hard()
     timer_y->start(1000);
 }
 
+/**
+ * @brief Red_Enemy::setEnemies_List Define la lista enlazada de las coordenadas
+ * @param enemies_list Lista enlazada de la otra clase
+ */
 void Red_Enemy_Hard::setEnemies_List(Linkedlist *enemies_list)
 {
     this->enemies_list = enemies_list;
 }
 
+/**
+ * @brief Red_Enemy::move Metodo que hace que el enemigo rojo del modo dificil se mueva pasivamente y ademas detecta las colisiones con las balas
+ */
 void Red_Enemy_Hard::move()
 {
     XML_Reader xml_reader;
@@ -73,6 +83,9 @@ void Red_Enemy_Hard::move()
         delete this;
     }
 }
+/**
+ * @brief Red_Enemy_Hard::move_y Metodo que hace que las naves rojas del modo dificil se muevan en el eje y
+ */
 void Red_Enemy_Hard::move_y(){
 
     int random_number = rand() % 2;

@@ -36,11 +36,13 @@ public:
     QTimer *timer_enemies;
     QTimer *wave_timer;
     QTimer *fase_timer;
+    QTimer *wave_arduino_timer;
     QTimer *timer;
     QTimer *setBullets;
     QTimer *check;
     QTimer *check2;
     QTimer *check3;
+    QTimer *check4;
     Collector *collector = new Collector();
     //Changable labels
     QGraphicsTextItem *bullets_label;
@@ -70,6 +72,8 @@ public slots:
     void Back_to_past();
     void Back_to_past_2();
     void Aduino_Movement();
+    void potenciometer();
+    void enviar_Dato();
     void Wait();
 
 
@@ -83,7 +87,6 @@ private:
     int bullets_speed;
     int bullets_number;
     int health_number;
-    int waves_info[4];
     int enemy_speed;
     void Back_to_past(int &variable, int newValue, int delayInSeconds);
 

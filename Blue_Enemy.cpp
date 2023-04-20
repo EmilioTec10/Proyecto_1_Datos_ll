@@ -8,7 +8,10 @@
 #include "XML_Reader.h"
 #include <QGuiApplication>
 
-
+/**
+ * @brief Blue_Enemy::Blue_Enemy Crea el objeto del enemigo azul e inicia el timer del movimiento
+ *
+ */
 Blue_Enemy::Blue_Enemy()
 {
     //Setups
@@ -20,12 +23,18 @@ Blue_Enemy::Blue_Enemy()
     connect(timer,SIGNAL(timeout()),this,SLOT(move())); //conect method that repeats the method everytime it recives the signal
     timer->start(50); //Signal every 50 miliseconds
 }
-
+/**
+ * @brief Blue_Enemy::setEnemies_List Define la lista de las coordenadas de los eneemigos en la clase
+ * @param enemies_list Lista de los enemigos de otra clase
+ */
 void Blue_Enemy::setEnemies_List(Linkedlist *enemies_list)
 {
     this->enemies_list = enemies_list;
 }
 
+/**
+ * @brief Blue_Enemy::move Funcion del movimiento del enemigo azul
+ */
 void Blue_Enemy::move()
 {
     XML_Reader xml_reader;

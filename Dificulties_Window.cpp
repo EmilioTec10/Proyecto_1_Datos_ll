@@ -6,7 +6,9 @@
 #include <QLabel>
 #include <QGraphicsProxyWidget>
 #include <QRectF>
-
+/**
+ * @brief Dificulties::easy Funcion que incia el juego en dificultad facil
+ */
 void Dificulties::easy()
 {
     Raged_Powers_Window* easy = new  Raged_Powers_Window("easy");
@@ -17,6 +19,9 @@ void Dificulties::easy()
 
 }
 
+/**
+ * @brief Dificulties::easy Funcion que incia el juego en dificultad normal
+ */
 void Dificulties::normal()
 {
     Raged_Powers_Window* normal = new  Raged_Powers_Window("normal");
@@ -27,6 +32,9 @@ void Dificulties::normal()
 
 }
 
+/**
+ * @brief Dificulties::easy Funcion que incia el juego en dificultad dificil
+ */
 void Dificulties::hard()
 {
     Raged_Powers_Window* hard = new  Raged_Powers_Window("hard");
@@ -35,8 +43,10 @@ void Dificulties::hard()
     difi = "hard";
     this->close();
 }
-
-
+/**
+ * @brief Dificulties::Dificulties Constructor de la clase de la ventana de las dificultadoes
+ * @param parent WIdget que hace posible que se incie la ventana
+ */
 Dificulties::Dificulties(QWidget *parent)
 {
 

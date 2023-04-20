@@ -4,6 +4,10 @@
 #include <QGraphicsProxyWidget>
 #include <QPushButton>
 
+/**
+ * @brief Win_Window::Win_Window Constructor que genera la pantalla de ganador
+ * @param parent widget que hace posible usar qobjects en la ventana
+ */
 Win_Window::Win_Window(QWidget *parent)
 {
     //Creation of the scene
@@ -36,6 +40,9 @@ Win_Window::Win_Window(QWidget *parent)
     show();
 }
 
+/**
+ * @brief Win_Window::main_menu Metodo que te manda de vuelta a la venta de dificultades
+ */
 void Win_Window::main_menu()
 {
     Dificulties *window = new Dificulties();
