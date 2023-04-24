@@ -55,6 +55,10 @@ Hard_Game::Hard_Game(int bullet_speed,int bullets, int ships_number, int health,
     health_label->setFont(font);
     health_label->setDefaultTextColor(Qt::red);
 
+    bullet_collector = new QGraphicsTextItem("Bullet Collector: " + QString::number(collector->size));
+    bullet_collector->setFont(font);
+    bullet_collector->setDefaultTextColor(Qt::red);
+
     //Fase Label
     fase_label = new QGraphicsTextItem("Fase: " + QString::number(fase_number));
     fase_label->setFont(font);
@@ -76,14 +80,17 @@ Hard_Game::Hard_Game(int bullet_speed,int bullets, int ships_number, int health,
     //Add of all the items in the scene
     scene->addItem(player);
     scene->addItem(bullets_label);
+    scene->addItem(bullet_collector);
     scene->addItem(bullets_speed_label);
     scene->addItem(health_label);
     scene->addItem(wave_label);
     scene->addItem(fase_label);
 
     //Set positions of the items in the scene
-    bullets_speed_label->setPos(0,20);
-    health_label->setPos(0,40);
+    bullets_label->setPos(0,50);
+    bullet_collector->setPos(0,70);
+    bullets_speed_label->setPos(0,90);
+    health_label->setPos(0,110);
     wave_label->setPos(700,20);
     fase_label->setPos(700,0);
 
@@ -92,6 +99,8 @@ Hard_Game::Hard_Game(int bullet_speed,int bullets, int ships_number, int health,
     player->setFocus();
     player->setPos(0,150);
     player->set_enemies(ships_number);
+    player->setCollector(collector);
+    player->set_CollectorLabel(bullet_collector);
 
     //Spawn enemies at the beginning
     player->spawn_hard_enemies(ships_number, scene);

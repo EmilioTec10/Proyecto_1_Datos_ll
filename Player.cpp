@@ -68,14 +68,12 @@ void Player::spawn_enemies(int enemies)
         red_Enemy->token = red_recursive;
         scene()->addItem(red_Enemy);
         red_Enemy->setEnemies_List(enemies_list);
-        red_Enemy->setWave_Info(waves_info);
         enemies_list->insertNode(red_Enemy, red_Enemy->token);
         waves_info[waves_index_recursive] = red_Enemy;
         Blue_Enemy *blue_Enemy = new Blue_Enemy();
         blue_Enemy->token = blue_recursive;
         scene()->addItem(blue_Enemy);
         blue_Enemy->setEnemies_List(enemies_list);
-        blue_Enemy->setWave_Info(waves_info);
         enemies_list->insertNode(blue_Enemy, blue_Enemy->token);
         waves_info[waves_index_recursive + 1] = blue_Enemy;
 
